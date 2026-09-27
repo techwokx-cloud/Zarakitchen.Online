@@ -84,12 +84,7 @@ export default function Contact() {
 
             <div className="mb-8">
               <h3 className="font-bold text-lg mb-2">WhatsApp</h3>
-              
-                href="https://wa.me/233591599629"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-zara-red hover:underline"
-              >
+              <a href="https://wa.me/233591599629" target="_blank" rel="noopener noreferrer" className="text-zara-red hover:underline">
                 Chat with us on WhatsApp
               </a>
             </div>
@@ -102,8 +97,7 @@ export default function Contact() {
             <div>
               <h3 className="font-bold text-lg mb-2">Hours</h3>
               <p className="text-gray-700">
-                Monday - Friday: 8:00 AM - 10:00 PM
-                <br />
+                Monday - Friday: 8:00 AM - 10:00 PM<br />
                 Saturday - Sunday: 8:00 AM - 11:00 PM
               </p>
             </div>
