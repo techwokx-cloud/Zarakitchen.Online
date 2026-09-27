@@ -9,6 +9,8 @@ export default function Contact() {
     message: '',
   });
   const [submitted, setSubmitted] = useState(false);
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState('');
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     const { name, value } = e.target;
@@ -18,13 +20,33 @@ export default function Contact() {
     }));
   };
 
-  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    // Here you would send the form data to your backend
-    console.log('Form submitted:', formData);
-    setSubmitted(true);
-    setFormData({ name: '', email: '', phone: '', message: '' });
-    setTimeout(() => setSubmitted(false), 5000);
+    setLoading(true);
+    setError('');
+
+    try {
+      const response = await fetch('/api/contact', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(formData),
+      });
+
+      if (!response.ok) {
+        const data = await response.json();
+        throw new Error(data.error || 'Failed to submit form');
+      }
+
+      setSubmitted(true);
+      setFormData({ name: '', email: '', phone: '', message: '' });
+      setTimeout(() => setSubmitted(false), 5000);
+    } catch (err) {
+      setError(err instanceof Error ? err.message : 'An error occurred');
+    } finally {
+      setLoading(false);
+    }
   };
 
   return (
@@ -34,7 +56,6 @@ export default function Contact() {
         <meta name="description" content="Contact Zara Kitchen" />
       </Head>
 
-      {/* Hero Section */}
       <section className="hero">
         <div className="max-w-4xl mx-auto text-center">
           <h1>Contact Us</h1>
@@ -42,10 +63,8 @@ export default function Contact() {
         </div>
       </section>
 
-      {/* Contact Information */}
       <section className="max-w-6xl mx-auto px-4 py-12">
         <div className="grid md:grid-cols-2 gap-12">
-          {/* Contact Info */}
           <div>
             <h2 className="text-2xl font-bold text-zara-red mb-6">Get in Touch</h2>
 
@@ -65,7 +84,7 @@ export default function Contact() {
 
             <div className="mb-8">
               <h3 className="font-bold text-lg mb-2">WhatsApp</h3>
-              <a
+              
                 href="https://wa.me/233591599629"
                 target="_blank"
                 rel="noopener noreferrer"
@@ -89,13 +108,18 @@ export default function Contact() {
             </div>
           </div>
 
-          {/* Contact Form */}
           <div>
             <h2 className="text-2xl font-bold text-zara-red mb-6">Send us a Message</h2>
 
             {submitted && (
               <div className="bg-zara-green text-white p-4 rounded-lg mb-6">
-                Thank you for your message! We'll get back to you soon.
+                ✅ Thank you for your message! We'll get back to you soon.
+              </div>
+            )}
+
+            {error && (
+              <div className="bg-red-500 text-white p-4 rounded-lg mb-6">
+                ❌ {error}
               </div>
             )}
 
@@ -149,16 +173,16 @@ export default function Contact() {
 
               <button
                 type="submit"
-                className="btn btn-primary w-full text-lg font-bold"
+                disabled={loading}
+                className="btn btn-primary w-full text-lg font-bold disabled:opacity-50"
               >
-                Send Message
+                {loading ? 'Sending...' : 'Send Message'}
               </button>
             </form>
           </div>
         </div>
       </section>
 
-      {/* Map Section */}
       <section className="bg-gray-100 py-12">
         <div className="max-w-6xl mx-auto px-4">
           <h2 className="text-2xl font-bold text-center text-zara-red mb-8">
