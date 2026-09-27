@@ -59,7 +59,7 @@ export default function Contact() {
       <section className="hero">
         <div className="max-w-4xl mx-auto text-center">
           <h1>Contact Us</h1>
-          <p>We'd love to hear from you</p>
+          <p>We would love to hear from you</p>
         </div>
       </section>
 
@@ -102,7 +102,8 @@ export default function Contact() {
             <div>
               <h3 className="font-bold text-lg mb-2">Hours</h3>
               <p className="text-gray-700">
-                Monday - Friday: 8:00 AM - 10:00 PM<br/>
+                Monday - Friday: 8:00 AM - 10:00 PM
+                <br />
                 Saturday - Sunday: 8:00 AM - 11:00 PM
               </p>
             </div>
@@ -113,13 +114,13 @@ export default function Contact() {
 
             {submitted && (
               <div className="bg-zara-green text-white p-4 rounded-lg mb-6">
-                ✅ Thank you for your message! We'll get back to you soon.
+                Thank you for your message! We will get back to you soon.
               </div>
             )}
 
             {error && (
               <div className="bg-red-500 text-white p-4 rounded-lg mb-6">
-                ❌ {error}
+                Error: {error}
               </div>
             )}
 
