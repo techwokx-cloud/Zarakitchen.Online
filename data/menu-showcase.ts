@@ -130,12 +130,31 @@ const photos: Record<string, ShowcasePhoto[]> = {
     { src: '/images/menu/chinese/peking-chicken.jpg', alt: 'Chicken stir-fry with courgette, red pepper and spring onion' },
     { src: '/images/menu/chinese/sweet-sour-fish.jpg', alt: 'Sweet and sour fish with pineapple and peppers' },
   ],
+  desserts: [
+    { src: '/images/menu/desserts/assorted-pastries.jpg', alt: 'Assorted macarons, fruit tarts, brownies and tiramisu on a tiered stand' },
+    { src: '/images/menu/desserts/chocolate-pudding.jpg', alt: 'Warm chocolate pudding with chocolate sauce and a scoop of vanilla ice cream' },
+    { src: '/images/menu/desserts/fruit-salad.jpg', alt: 'Creamy fruit salad with strawberries, kiwi, pineapple, orange and blueberries' },
+    { src: '/images/menu/desserts/vanilla-ice-cream.jpg', alt: 'Scoops of vanilla, chocolate and strawberry ice cream' },
+  ],
+  'extra-dishes': [
+    { src: '/images/menu/extra-dishes/eba-akple-banku.jpg', alt: 'Plate of eba, akple and banku' },
+    { src: '/images/menu/extra-dishes/extra-kenkey.jpg', alt: 'Extra Ga or Fante kenkey wrapped in leaves and husks in a basket' },
+    { src: '/images/menu/extra-dishes/fufu.jpg', alt: 'Plain fufu on a white plate' },
+    { src: '/images/menu/extra-dishes/kenkey-fish.jpg', alt: 'Kenkey plate with grilled fish, pepper sauce, shito and sliced onions' },
+    { src: '/images/menu/extra-dishes/goat.jpg', alt: 'Grilled goat meat portion with rosemary' },
+    { src: '/images/menu/extra-dishes/jollof.jpg', alt: 'Plate of Ghana-style jollof rice' },
+    { src: '/images/menu/extra-dishes/steamed-rice.jpg', alt: 'Steamed rice with fresh coriander and lime' },
+    { src: '/images/menu/extra-dishes/yam-chips.jpg', alt: 'Golden yam chips in a tray' },
+    { src: '/images/menu/extra-dishes/yam-boiled-fried.jpg', alt: 'Boiled yam and fried yam on white plates' },
+  ],
 };
 
 const promoImages: Record<string, string> = {
   breakfast: '/images/menu/breakfast/promo.jpg',
   appetisers: '/images/menu/appetisers/promo.jpg',
   chinese: '/images/menu/chinese/promo.jpg',
+  desserts: '/images/menu/desserts/promo.jpg',
+  'extra-dishes': '/images/menu/extra-dishes/promo.jpg',
 };
 
 export const showcase: ShowcaseCategory[] = categories.map((c) => ({
