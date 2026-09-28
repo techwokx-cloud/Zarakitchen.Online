@@ -1,150 +1,158 @@
 import Head from 'next/head';
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import Link from 'next/link';
+import Image from 'next/image';
 
 export default function Home() {
-  const [slide, setSlide] = useState(0);
-
-  const slides = [
-    'https://via.placeholder.com/1400x600?text=Zara+Kitchen',
-    'https://via.placeholder.com/1400x600?text=Good+Food',
-    'https://via.placeholder.com/1400x600?text=Good+Mood',
+  const categories = [
+    { name: 'Breakfast', image: '/menu-images/Menu/Healthy Breakfast/Fruit Salad.png' },
+    { name: 'Hot Breakfast', image: '/menu-images/Menu/Hot Breakfast/Avocago-Bacon-Egg.png' },
+    { name: 'On the Bakery', image: '/menu-images/Menu/On the Bakery/Croissant.png' },
+    { name: 'Appetizers', image: '/menu-images/Menu/Appetisers/Chicken Wings.png' },
+    { name: 'Salads', image: '/menu-images/Menu/Salads/Ceaser Salad.png' },
+    { name: 'Light Meals', image: '/menu-images/Menu/Light Meals/Chicken Wrap.png' },
+    { name: 'On the Grill', image: '/menu-images/Menu/On The Grill/BBQ Chicken.png' },
+    { name: 'Pastas', image: '/menu-images/Menu/Pasta/Spagetti Bolognaise.png' },
+    { name: 'Chinese Food', image: '/menu-images/Menu/Chinese Food/Chinese Beef.png' },
+    { name: 'Indian Dishes', image: '/menu-images/Menu/Indian Dishes/Chicken Tikka.png' },
+    { name: 'Rice Dishes', image: '/menu-images/Menu/Rice Dishes/Beef Fried Rice.png' },
+    { name: 'Ghanaian Specialities', image: '/menu-images/Menu/Ghanaian Specialities/Fuly loaded waakye.png' },
+    { name: 'From the Grill', image: '/menu-images/Menu/From The Grill/Banku Grilled Tilapia.png' },
+    { name: 'Soups', image: '/menu-images/Menu/Soaps/Red Red.png' },
+    { name: 'Extra Dishes', image: '/menu-images/Menu/Extra Dishes/jollof.jpeg' },
+    { name: 'Desserts', image: '/menu-images/Menu/desserts/Fruit Salad.png' },
   ];
 
-  useEffect(() => {
-    const timer = setInterval(() => {
-      setSlide(s => (s + 1) % slides.length);
-    }, 5000);
-    return () => clearInterval(timer);
-  }, []);
+  const platforms = [
+    { name: 'Website Order Online', icon: '🌐' },
+    { name: 'WhatsApp Chat & Order', icon: '💬' },
+    { name: 'Jumia Food', icon: '🚚' },
+    { name: 'Uber Eats', icon: '🍴' },
+    { name: 'Bolt Food', icon: '⚡' },
+    { name: 'Hubtel', icon: '📱' },
+  ];
 
   return (
     <>
       <Head>
-        <title>Zara Kitchen</title>
+        <title>Zara Kitchen - Authentic Ghanaian Cuisine</title>
       </Head>
 
-      <section className="relative h-96 bg-gray-900">
-        <img 
-          src={slides[slide]} 
-          alt="Zara Kitchen" 
-          className="w-full h-full object-cover" 
-        />
-        <div className="absolute inset-0 bg-black bg-opacity-50 flex items-center justify-center">
-          <div className="text-center text-white">
-            <h1 className="text-6xl font-bold mb-4">Zara Kitchen</h1>
-            <p className="text-xl">Good Food, Good Mood</p>
+      {/* HERO SECTION */}
+      <section className="bg-white">
+        <div className="max-w-7xl mx-auto px-4 py-12 grid md:grid-cols-2 gap-8 items-center">
+          <div>
+            <p className="text-gray-600 font-bold mb-2">Authentic Ghanaian & Continental Cuisine</p>
+            <h1 className="text-6xl font-bold text-zara-red italic mb-2">Zara Kitchen</h1>
+            <p className="text-2xl font-bold italic mb-4">Made with Love ❤</p>
+            <p className="text-gray-700">Fresh. Tasty. Satisfying.</p>
+          </div>
+          <div className="relative">
+            <img 
+              src="https://via.placeholder.com/500x400?text=Zara+Kitchen+Food" 
+              alt="Zara Kitchen" 
+              className="rounded-lg w-full"
+            />
+            <div className="absolute top-4 right-4 bg-zara-red text-white p-4 rounded-lg text-center font-bold max-w-xs skew-y-2">
+              <p>Delicious</p>
+              <p>Meals</p>
+              <p>Made for You ❤</p>
+            </div>
           </div>
         </div>
       </section>
 
-      <section className="max-w-7xl mx-auto px-4 py-16">
-        <h2 className="text-4xl font-bold text-center text-zara-red mb-12">
-          Menu Categories
-        </h2>
-        
-        <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-8 gap-4">
-          <CategoryCard icon="🌅" name="Breakfast" />
-          <CategoryCard icon="🍳" name="Hot Breakfast" />
-          <CategoryCard icon="🥐" name="Bakery" />
-          <CategoryCard icon="🍗" name="Appetizers" />
-          <CategoryCard icon="🥗" name="Salads" />
-          <CategoryCard icon="🥪" name="Light Meals" />
-          <CategoryCard icon="🔥" name="Grill" />
-          <CategoryCard icon="🍝" name="Pasta" />
-        </div>
-      </section>
-
+      {/* CATEGORY CARDS */}
       <section className="bg-gray-50 py-16">
-        <div className="max-w-6xl mx-auto px-4">
-          <h2 className="text-4xl font-bold text-center text-zara-red mb-12">
-            Order Your Way
-          </h2>
-          
-          <div className="grid md:grid-cols-3 gap-8">
-            <OrderCard />
-            <PaymentCard />
-            <CTACard />
+        <div className="max-w-7xl mx-auto px-4">
+          <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-8 gap-4">
+            {categories.map((cat, idx) => (
+              <Link key={idx} href={`/menu?category=${cat.name}`}>
+                <div className="bg-white rounded-lg overflow-hidden cursor-pointer hover:shadow-lg transition">
+                  <img 
+                    src={cat.image} 
+                    alt={cat.name} 
+                    className="w-full h-24 object-cover"
+                    onError={(e) => {e.currentTarget.src = 'https://via.placeholder.com/150?text=' + cat.name}}
+                  />
+                  <p className="p-2 text-center text-sm font-bold">{cat.name}</p>
+                </div>
+              </Link>
+            ))}
           </div>
         </div>
       </section>
 
-      <section className="max-w-6xl mx-auto px-4 py-16">
-        <div className="grid md:grid-cols-3 gap-12">
-          <InfoCard 
-            title="Opening Hours" 
-            content={<><p><strong>Mon-Fri:</strong> 8AM-10PM</p><p><strong>Sat-Sun:</strong> 8AM-11PM</p></>} 
-          />
-          <InfoCard 
-            title="Contact" 
-            content={<><p><a href="tel:+233591599629" className="text-zara-red">+233 591 599 629</a></p><p><a href="mailto:orders@zarakitchen.online" className="text-zara-red">orders@zarakitchen.online</a></p></>} 
-          />
-          <InfoCard 
-            title="Location" 
-            content={<p>Accra, Ghana</p>} 
-          />
+      {/* ORDER YOUR WAY */}
+      <section className="bg-white py-16">
+        <div className="max-w-7xl mx-auto px-4">
+          <div className="border-2 border-zara-red rounded-2xl p-8 mb-8">
+            <h2 className="text-3xl font-bold text-zara-red mb-2">Order Your Way</h2>
+            <p className="text-gray-700 mb-8">Fast • Easy • Convenient</p>
+            <div className="grid md:grid-cols-6 gap-4">
+              {platforms.map((p, idx) => (
+                <a 
+                  key={idx}
+                  href={p.name.includes('WhatsApp') ? 'https://wa.me/233591599629' : '#'} 
+                  target="_blank" 
+                  rel="noopener"
+                  className="text-center p-4 hover:bg-gray-50 rounded"
+                >
+                  <span className="text-3xl mb-2 block">{p.icon}</span>
+                  <p className="font-bold text-sm">{p.name}</p>
+                </a>
+              ))}
+            </div>
+          </div>
+
+          <div className="border-2 border-zara-red rounded-2xl p-8 text-center">
+            <h3 className="text-2xl font-bold text-zara-red mb-4">All Payments Accepted</h3>
+            <p className="text-gray-700 mb-4">Mobile Money (MoMo) • Bank Cards • Pay on Delivery</p>
+          </div>
         </div>
       </section>
+
+      {/* RED FOOTER */}
+      <footer className="bg-zara-red text-white py-12">
+        <div className="max-w-7xl mx-auto px-4 grid md:grid-cols-5 gap-8 mb-8">
+          <div>
+            <h4 className="font-bold mb-4">Zara Kitchen</h4>
+            <p className="text-sm">Good Food, Good Mood</p>
+          </div>
+          <div>
+            <h4 className="font-bold mb-4">Quick Links</h4>
+            <ul className="space-y-2 text-sm">
+              <li><Link href="/">Home</Link></li>
+              <li><Link href="/menu">Menu</Link></li>
+              <li><Link href="/about">About</Link></li>
+              <li><Link href="/gallery">Gallery</Link></li>
+              <li><Link href="/contact">Contact</Link></li>
+            </ul>
+          </div>
+          <div>
+            <h4 className="font-bold mb-4">Contact Us</h4>
+            <p className="text-sm mb-2">orders@zarakitchen.online</p>
+            <p className="text-sm mb-2">059 159 9629</p>
+            <p className="text-sm">Phone 059 236 1289</p>
+          </div>
+          <div>
+            <h4 className="font-bold mb-4">Opening Hours</h4>
+            <p className="text-sm mb-2">Mon - Fri: 8AM - 10PM</p>
+            <p className="text-sm">Sat - Sun: 8AM - 11PM</p>
+          </div>
+          <div>
+            <h4 className="font-bold mb-4">Download App</h4>
+            <div className="bg-yellow-400 text-black p-2 rounded text-center font-bold text-sm mb-4">
+              Install PWA<br/>Order faster
+            </div>
+            <div className="flex gap-3 justify-center text-xl">
+              <a href="#">f</a>
+              <a href="#">📷</a>
+              <a href="#">▶</a>
+            </div>
+          </div>
+        </div>
+      </footer>
     </>
-  );
-}
-
-function CategoryCard({ icon, name }: { icon: string; name: string }) {
-  return (
-    <Link href="/menu">
-      <div className="bg-white border-2 border-zara-red rounded-lg p-4 text-center cursor-pointer hover:bg-zara-red hover:text-white">
-        <span className="text-4xl">{icon}</span>
-        <p className="text-sm font-bold mt-2">{name}</p>
-      </div>
-    </Link>
-  );
-}
-
-function OrderCard() {
-  return (
-    <div className="bg-white p-8 rounded-lg shadow border-l-4 border-zara-red">
-      <h3 className="text-xl font-bold text-zara-red mb-6">Order Methods</h3>
-      <ul className="space-y-3">
-        <li><a href="https://wa.me/233591599629" className="text-zara-red hover:underline">WhatsApp</a></li>
-        <li><a href="#" className="text-zara-red hover:underline">Jumia Food</a></li>
-        <li><a href="#" className="text-zara-red hover:underline">Uber Eats</a></li>
-      </ul>
-    </div>
-  );
-}
-
-function PaymentCard() {
-  return (
-    <div className="bg-white p-8 rounded-lg shadow border-l-4 border-zara-green">
-      <h3 className="text-xl font-bold text-zara-green mb-6">Payment</h3>
-      <ul className="space-y-3 text-gray-700">
-        <li>Mobile Money</li>
-        <li>Bank Cards</li>
-        <li>Pay on Delivery</li>
-      </ul>
-    </div>
-  );
-}
-
-function CTACard() {
-  return (
-    <div className="bg-zara-red text-white p-8 rounded-lg shadow flex flex-col justify-center">
-      <h3 className="text-xl font-bold mb-4">Ready to Order?</h3>
-      <a 
-        href="https://wa.me/233591599629" 
-        className="bg-zara-green text-white font-bold py-3 px-6 rounded-lg text-center"
-      >
-        Order Now
-      </a>
-    </div>
-  );
-}
-
-function InfoCard({ title, content }: { title: string; content: JSX.Element }) {
-  return (
-    <div>
-      <h3 className="text-xl font-bold text-zara-red mb-4">{title}</h3>
-      <div className="text-gray-700">{content}</div>
-    </div>
   );
 }
