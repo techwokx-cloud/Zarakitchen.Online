@@ -35,11 +35,17 @@ export default function Navbar() {
                   aria-current={isActive(l.href) ? 'page' : undefined}
                   className={`relative py-2 text-[17px] font-medium transition-colors hover:text-zara-red ${
                     isActive(l.href)
-                      ? "text-zara-red after:absolute after:-inset-x-3 after:-bottom-px after:h-[3px] after:bg-zara-red after:content-['']"
+                      ? "font-semibold text-zara-red after:absolute after:-inset-x-3 after:-bottom-px after:h-[3px] after:bg-zara-red after:content-['']"
                       : 'text-neutral-900'
                   }`}
                 >
                   {l.label}
+                  {l.href === '/menu' && isActive(l.href) && (
+                    <span
+                      aria-hidden
+                      className="absolute left-1/2 top-[calc(100%+18px)] h-0 w-0 -translate-x-1/2 border-x-[9px] border-b-[9px] border-x-transparent border-b-zara-red"
+                    />
+                  )}
                 </Link>
               </li>
             ))}

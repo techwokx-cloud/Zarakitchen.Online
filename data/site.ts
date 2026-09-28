@@ -40,22 +40,22 @@ export const navLinks = [
 // `menuCategory` must match a value in menuCategories (data/menu-data.ts) so the
 // tile opens the right filter on /menu. Swap `image` for real photos any time.
 export const categories = [
-  { name: 'Breakfast', menuCategory: 'Healthy Breakfast', image: '/images/categories/breakfast.png' },
-  { name: 'Hot Breakfast', menuCategory: 'Hot Breakfast', image: '/images/categories/hot-breakfast.png' },
-  { name: 'On the Bakery', menuCategory: 'Bakery', image: '/images/categories/bakery.png' },
-  { name: 'Appetisers', menuCategory: 'Appetizers', image: '/images/categories/appetisers.png' },
-  { name: 'Salads', menuCategory: 'Salads', image: '/images/categories/salads.png' },
-  { name: 'Light Meals', menuCategory: 'Light Meals', image: '/images/categories/light-meals.png' },
-  { name: 'On the Grill', menuCategory: 'On Grill', image: '/images/categories/on-the-grill.png' },
-  { name: 'Pastas', menuCategory: 'Pasta', image: '/images/categories/pastas.png' },
-  { name: 'Chinese Food', menuCategory: 'Chinese', image: '/images/categories/chinese.png' },
-  { name: 'Indian Dishes', menuCategory: 'Indian', image: '/images/categories/indian.png' },
-  { name: 'Rice Dishes', menuCategory: 'Rice Dishes', image: '/images/categories/rice-dishes.png' },
-  { name: 'Ghanaian Specialities', menuCategory: 'Ghanaian', image: '/images/categories/ghanaian.png' },
-  { name: 'From the Grill', menuCategory: 'From Grill', image: '/images/categories/from-the-grill.png' },
-  { name: 'Soups', menuCategory: 'Soups', image: '/images/categories/soups.png' },
-  { name: 'Extra Dishes', menuCategory: 'Extra Dishes', image: '/images/categories/extra-dishes.png' },
-  { name: 'Desserts', menuCategory: 'Desserts', image: '/images/categories/desserts.png' },
+  { name: 'Breakfast', slug: 'breakfast', menuCategory: 'Healthy Breakfast', image: '/images/categories/breakfast.png' },
+  { name: 'Hot Breakfast', slug: 'hot-breakfast', menuCategory: 'Hot Breakfast', image: '/images/categories/hot-breakfast.png' },
+  { name: 'On the Bakery', slug: 'bakery', menuCategory: 'Bakery', image: '/images/categories/bakery.png' },
+  { name: 'Appetisers', slug: 'appetisers', menuCategory: 'Appetizers', image: '/images/categories/appetisers.png' },
+  { name: 'Salads', slug: 'salads', menuCategory: 'Salads', image: '/images/categories/salads.png' },
+  { name: 'Light Meals', slug: 'light-meals', menuCategory: 'Light Meals', image: '/images/categories/light-meals.png' },
+  { name: 'On the Grill', slug: 'on-the-grill', menuCategory: 'On Grill', image: '/images/categories/on-the-grill.png' },
+  { name: 'Pastas', slug: 'pastas', menuCategory: 'Pasta', image: '/images/categories/pastas.png' },
+  { name: 'Chinese Food', slug: 'chinese', menuCategory: 'Chinese', image: '/images/categories/chinese.png' },
+  { name: 'Indian Dishes', slug: 'indian', menuCategory: 'Indian', image: '/images/categories/indian.png' },
+  { name: 'Rice Dishes', slug: 'rice-dishes', menuCategory: 'Rice Dishes', image: '/images/categories/rice-dishes.png' },
+  { name: 'Ghanaian Specialities', slug: 'ghanaian', menuCategory: 'Ghanaian', image: '/images/categories/ghanaian.png' },
+  { name: 'From the Grill', slug: 'from-the-grill', menuCategory: 'From Grill', image: '/images/categories/from-the-grill.png' },
+  { name: 'Soups', slug: 'soups', menuCategory: 'Soups', image: '/images/categories/soups.png' },
+  { name: 'Extra Dishes', slug: 'extra-dishes', menuCategory: 'Extra Dishes', image: '/images/categories/extra-dishes.png' },
+  { name: 'Desserts', slug: 'desserts', menuCategory: 'Desserts', image: '/images/categories/desserts.png' },
 ];
 
 // Empty href = not linked yet (rendered as a plain tile). Add your store URLs here.

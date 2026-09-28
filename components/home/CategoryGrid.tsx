@@ -10,7 +10,7 @@ export default function CategoryGrid() {
         {categories.map((c) => (
           <li key={c.name}>
             <Link
-              href={{ pathname: '/menu', query: { category: c.menuCategory } }}
+              href={{ pathname: '/menu', query: { category: c.slug } }}
               className="group flex flex-col items-center text-center"
             >
               <Image
