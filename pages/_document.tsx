@@ -4,9 +4,12 @@ export default function Document() {
   return (
     <Html lang="en">
       <Head>
-        <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='75' font-size='75' fill='%23DC2626'>Z</text></svg>" />
         <meta charSet="utf-8" />
-        <meta name="theme-color" content="#DC2626" />
+        <meta name="theme-color" content="#E2030A" />
+        <link rel="icon" href="/favicon.ico" sizes="48x48" />
+        <link rel="icon" href="/favicon.png" type="image/png" />
+        <link rel="apple-touch-icon" href="/icons/apple-touch-icon.png" />
+        <link rel="manifest" href="/manifest.webmanifest" />
       </Head>
       <body>
         <Main />
