@@ -177,6 +177,30 @@ const photos: Record<string, ShowcasePhoto[]> = {
     { src: '/images/menu/light-meals/gourmet-beef-burger.jpg', alt: 'Gourmet beef burger with cheese, bacon and caramelised onions, served with seasoned fries' },
     { src: '/images/menu/light-meals/chicken-club.jpg', alt: 'Toasted chicken club sandwich with lettuce and tomato, served with crisps' },
   ],
+  bakery: [
+    { src: '/images/menu/bakery/assorted-muffins.jpg', alt: 'Assorted muffins including double chocolate, blueberry, mixed berry and vanilla' },
+    { src: '/images/menu/bakery/croissant.jpg', alt: 'Plain and filled croissants with ham, cheese and tomato' },
+    { src: '/images/menu/bakery/pancakes.jpg', alt: 'Stack of pancakes with whipped cream and maple syrup' },
+    { src: '/images/menu/bakery/scones.jpg', alt: 'Fresh scones served with butter and berry jam' },
+    { src: '/images/menu/bakery/waffle-chocolate-banana.jpg', alt: 'Waffle topped with sliced banana and chocolate drizzle' },
+    { src: '/images/menu/bakery/waffle-chocolate-walnut.jpg', alt: 'Waffles topped with chocolate sauce, honey and walnuts' },
+  ],
+  'on-the-grill': [
+    { src: '/images/menu/on-the-grill/bbq-chicken-ribs.jpg', alt: 'BBQ chicken and ribs with seasoned fries and salad' },
+    { src: '/images/menu/on-the-grill/beef-tenderloin.jpg', alt: 'Grilled beef tenderloin with herb butter, mashed potato and salad' },
+    { src: '/images/menu/on-the-grill/grilled-salmon.jpg', alt: 'Grilled salmon fillet with mashed potato and grilled vegetables' },
+    { src: '/images/menu/on-the-grill/lamb-chops.jpg', alt: 'Grilled lamb chops with fries, salad and dipping sauce' },
+    { src: '/images/menu/on-the-grill/surf-and-turf.jpg', alt: 'Surf and turf with grilled steak, shrimp and seasoned fries' },
+  ],
+  pastas: [
+    { src: '/images/menu/pastas/fettuccine-alfredo-chicken.jpg', alt: 'Fettuccine alfredo with grilled chicken and mushrooms' },
+    { src: '/images/menu/pastas/pesto-penne-chicken.jpg', alt: 'Pesto penne with grilled chicken, mushrooms and parmesan' },
+    { src: '/images/menu/pastas/mac-and-cheese.jpg', alt: 'Baked mac and cheese with cheddar' },
+    { src: '/images/menu/pastas/mushroom-pappardelle.jpg', alt: 'Creamy mushroom pappardelle with parmesan' },
+    { src: '/images/menu/pastas/penne-arrabbiata.jpg', alt: 'Penne arrabbiata with olives and parmesan' },
+    { src: '/images/menu/pastas/seafood-linguine.jpg', alt: 'Seafood linguine with shrimp, calamari and mussels' },
+    { src: '/images/menu/pastas/spaghetti-bolognaise.jpg', alt: 'Spaghetti bolognaise topped with parmesan' },
+  ],
 };
 
 const promoImages: Record<string, string> = {
@@ -190,6 +214,9 @@ const promoImages: Record<string, string> = {
   'hot-breakfast': '/images/menu/hot-breakfast/promo.jpg',
   indian: '/images/menu/indian/promo.jpg',
   'light-meals': '/images/menu/light-meals/promo.jpg',
+  bakery: '/images/menu/bakery/promo.jpg',
+  'on-the-grill': '/images/menu/on-the-grill/promo.jpg',
+  pastas: '/images/menu/pastas/promo.jpg',
 };
 
 export const showcase: ShowcaseCategory[] = categories.map((c) => ({
