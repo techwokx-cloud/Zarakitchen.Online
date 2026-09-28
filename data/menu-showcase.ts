@@ -112,10 +112,20 @@ const photos: Record<string, ShowcasePhoto[]> = {
     { src: '/images/menu/breakfast/5.jpg', alt: 'Stack of pancakes with strawberries, blueberries and syrup' },
     { src: '/images/menu/breakfast/6.jpg', alt: 'Kenkey balls with spinach stew and tomato sauce' },
   ],
+  appetisers: [
+    { src: '/images/menu/appetisers/chicken-wings.jpg', alt: 'Sticky glazed chicken wings with sesame seeds and coriander' },
+    { src: '/images/menu/appetisers/fried-calamari.jpg', alt: 'Crispy fried calamari with grilled lemon and dipping sauce' },
+    { src: '/images/menu/appetisers/guinea-fowl.jpg', alt: 'Spiced grilled guinea fowl with fresh salad' },
+    { src: '/images/menu/appetisers/kelewele.jpg', alt: 'Kelewele, spicy fried plantain cubes' },
+    { src: '/images/menu/appetisers/prawns.jpg', alt: 'Grilled garlic chilli prawns with lime' },
+    { src: '/images/menu/appetisers/spicy-pork-ribs.jpg', alt: 'Spicy pork ribs topped with spring onion and chilli' },
+    { src: '/images/menu/appetisers/vegetable-spring-roll.jpg', alt: 'Crispy vegetable spring rolls with sweet chilli sauce' },
+  ],
 };
 
 const promoImages: Record<string, string> = {
   breakfast: '/images/menu/breakfast/promo.jpg',
+  appetisers: '/images/menu/appetisers/promo.jpg',
 };
 
 export const showcase: ShowcaseCategory[] = categories.map((c) => ({
