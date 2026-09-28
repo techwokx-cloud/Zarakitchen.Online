@@ -105,12 +105,10 @@ const copy: Record<string, { tagline: string; promoTitle: string; promoText: str
 
 const photos: Record<string, ShowcasePhoto[]> = {
   breakfast: [
-    { src: '/images/menu/breakfast/1.jpg', alt: 'Scrambled eggs with fried plantain, toast and tomato' },
-    { src: '/images/menu/breakfast/2.jpg', alt: 'Oatmeal bowl topped with banana, strawberries and blueberries' },
-    { src: '/images/menu/breakfast/3.jpg', alt: 'Boiled eggs with beans stew and fried plantain' },
-    { src: '/images/menu/breakfast/4.jpg', alt: 'Jollof rice with fried plantain and grilled chicken' },
-    { src: '/images/menu/breakfast/5.jpg', alt: 'Stack of pancakes with strawberries, blueberries and syrup' },
-    { src: '/images/menu/breakfast/6.jpg', alt: 'Kenkey balls with spinach stew and tomato sauce' },
+    { src: '/images/menu/breakfast/cereal-bowl.jpg', alt: 'Cereal bowl with cornflakes, bran flakes, oats, banana, strawberries and blueberries' },
+    { src: '/images/menu/breakfast/fruit-salad.jpg', alt: 'Creamy fruit salad with strawberries, kiwi, pineapple, orange and blueberries' },
+    { src: '/images/menu/breakfast/full-breakfast.jpg', alt: 'Full breakfast with fried eggs, sausages, bacon, baked beans, mushrooms and chips' },
+    { src: '/images/menu/breakfast/granola-bowl.jpg', alt: 'Granola bowl with yoghurt, chia seeds and fresh berries' },
   ],
   appetisers: [
     { src: '/images/menu/appetisers/chicken-wings.jpg', alt: 'Sticky glazed chicken wings with sesame seeds and coriander' },
@@ -147,6 +145,18 @@ const photos: Record<string, ShowcasePhoto[]> = {
     { src: '/images/menu/extra-dishes/yam-chips.jpg', alt: 'Golden yam chips in a tray' },
     { src: '/images/menu/extra-dishes/yam-boiled-fried.jpg', alt: 'Boiled yam and fried yam on white plates' },
   ],
+  'from-the-grill': [
+    { src: '/images/menu/from-the-grill/banku-snapper.jpg', alt: 'Banku with grilled fish topped with sautéed peppers and onions, served with pepper sauces' },
+    { src: '/images/menu/from-the-grill/banku-tilapia.jpg', alt: 'Banku with charcoal-grilled tilapia, cucumber, red onion, green pepper and pepper sauces' },
+    { src: '/images/menu/from-the-grill/plantain-kontomire-fish.jpg', alt: 'Boiled plantain with kontomire stew, avocado, boiled egg and fish in tomato stew' },
+    { src: '/images/menu/from-the-grill/charcoal-tilapia-chicken.jpg', alt: 'Charcoal-grilled tilapia and spiced chicken with kenkey, pepper sauce and slaw' },
+    { src: '/images/menu/from-the-grill/palava-fish-yam.jpg', alt: 'Fish in palava stew with boiled eggs and wedges of boiled yam' },
+  ],
+  ghanaian: [
+    { src: '/images/menu/ghanaian/palava-yam.jpg', alt: 'Palava sauce with whole fish, assorted fish and smoked meat, served with boiled yam' },
+    { src: '/images/menu/ghanaian/kontomire-yam.jpg', alt: 'Kontomire stew with boiled yam, avocado, eggs, beef and fish' },
+    { src: '/images/menu/ghanaian/waakye.jpg', alt: 'Fully loaded waakye with gari, spaghetti, beef stew, boiled egg, coleslaw and fried fish' },
+  ],
 };
 
 const promoImages: Record<string, string> = {
@@ -155,6 +165,8 @@ const promoImages: Record<string, string> = {
   chinese: '/images/menu/chinese/promo.jpg',
   desserts: '/images/menu/desserts/promo.jpg',
   'extra-dishes': '/images/menu/extra-dishes/promo.jpg',
+  'from-the-grill': '/images/menu/from-the-grill/promo.jpg',
+  ghanaian: '/images/menu/ghanaian/promo.jpg',
 };
 
 export const showcase: ShowcaseCategory[] = categories.map((c) => ({
