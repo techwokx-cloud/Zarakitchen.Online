@@ -121,11 +121,21 @@ const photos: Record<string, ShowcasePhoto[]> = {
     { src: '/images/menu/appetisers/spicy-pork-ribs.jpg', alt: 'Spicy pork ribs topped with spring onion and chilli' },
     { src: '/images/menu/appetisers/vegetable-spring-roll.jpg', alt: 'Crispy vegetable spring rolls with sweet chilli sauce' },
   ],
+  chinese: [
+    { src: '/images/menu/chinese/beef-chop.jpg', alt: 'Beef stir-fry with broccoli, mushrooms, baby corn and carrots' },
+    { src: '/images/menu/chinese/chinese-beef.jpg', alt: 'Crispy chilli beef with peppers and spring onion' },
+    { src: '/images/menu/chinese/chinese-chicken.jpg', alt: 'Spicy stir-fried chicken with cauliflower, peppers and dried chillies' },
+    { src: '/images/menu/chinese/chinese-pork-sauce.jpg', alt: 'Pork in sauce with peanuts, courgette and peppers' },
+    { src: '/images/menu/chinese/fish-chili-sauce.jpg', alt: 'Crispy fish in chilli sauce with peppers and onion' },
+    { src: '/images/menu/chinese/peking-chicken.jpg', alt: 'Chicken stir-fry with courgette, red pepper and spring onion' },
+    { src: '/images/menu/chinese/sweet-sour-fish.jpg', alt: 'Sweet and sour fish with pineapple and peppers' },
+  ],
 };
 
 const promoImages: Record<string, string> = {
   breakfast: '/images/menu/breakfast/promo.jpg',
   appetisers: '/images/menu/appetisers/promo.jpg',
+  chinese: '/images/menu/chinese/promo.jpg',
 };
 
 export const showcase: ShowcaseCategory[] = categories.map((c) => ({
