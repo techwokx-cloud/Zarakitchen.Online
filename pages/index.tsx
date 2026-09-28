@@ -3,53 +3,45 @@ import { useState, useEffect } from 'react';
 import Link from 'next/link';
 
 export default function Home() {
-  const [currentSlide, setCurrentSlide] = useState(0);
+  const [slide, setSlide] = useState(0);
 
   const slides = [
-    'https://via.placeholder.com/1400x600?text=Zara+Kitchen+1',
-    'https://via.placeholder.com/1400x600?text=Zara+Kitchen+2',
-    'https://via.placeholder.com/1400x600?text=Zara+Kitchen+3',
-  ];
-
-  const categories = [
-    { name: 'Breakfast', icon: '🌅' },
-    { name: 'Hot Breakfast', icon: '🍳' },
-    { name: 'On the Bakery', icon: '🥐' },
-    { name: 'Appetizers', icon: '🍗' },
-    { name: 'Salads', icon: '🥗' },
-    { name: 'Light Meals', icon: '🥪' },
-    { name: 'On the Grill', icon: '🔥' },
-    { name: 'Pastas', icon: '🍝' },
-    { name: 'Chinese Food', icon: '🥢' },
-    { name: 'Indian Dishes', icon: '🍛' },
-    { name: 'Rice Dishes', icon: '🍚' },
-    { name: 'Ghanaian Specialities', icon: '🍲' },
-    { name: 'From The Grill', icon: '🐟' },
-    { name: 'Soups', icon: '🥘' },
-    { name: 'Extra Dishes', icon: '🥔' },
-    { name: 'Desserts', icon: '🍰' },
+    'https://via.placeholder.com/1400x600?text=Zara+Kitchen',
+    'https://via.placeholder.com/1400x600?text=Good+Food',
+    'https://via.placeholder.com/1400x600?text=Good+Mood',
   ];
 
   useEffect(() => {
-    const interval = setInterval(() => {
-      setCurrentSlide((prev) => (prev + 1) % slides.length);
+    const timer = setInterval(() => {
+      setSlide(s => (s + 1) % slides.length);
     }, 5000);
-    return () => clearInterval(interval);
+    return () => clearInterval(timer);
   }, []);
 
   return (
     <>
       <Head>
-        <title>Zara Kitchen</title>
+        <title>Zara Kitchen - Authentic Ghanaian Cuisine</title>
       </Head>
 
-      {/* Carousel */}
       <section className="relative h-96 bg-gray-900">
-        <img src={slides[currentSlide]} alt="Zara Kitchen" className="w-full h-full object-cover" />
-        <div className="absolute inset-0 bg-black bg-opacity-40 flex flex-col items-center justify-center text-white text-center">
-          <h1 className="text-5xl font-bold mb-4">Zara Kitchen</h1>
-          <p className="text-2xl">Made with Love</p>
+        <img src={slides[slide]} alt="Zara Kitchen" className="w-full h-full object-cover" />
+        <div className="absolute inset-0 bg-black bg-opacity-50 flex items-center justify-center">
+          <div className="text-center text-white">
+            <h1 className="text-6xl font-bold mb-4">Zara Kitchen</h1>
+            <p className="text-xl">Good Food, Good Mood</p>
+          </div>
         </div>
+      </section>
 
-        <div className="absolute bottom-4 left-1/2 transform -translate-x-1/2 flex gap-2">
-          {slides.map((_, index) => (
+      <section className="max-w-7xl mx-auto px-4 py-16">
+        <h2 className="text-4xl font-bold text-center text-zara-red mb-12">Our Menu Categories</h2>
+        <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-8 gap-4">
+          <Link href="/menu"><div className="bg-white border-2 border-zara-red rounded-lg p-4 text-center cursor-pointer hover:bg-zara-red hover:text-white transition"><span className="text-4xl">🌅</span><p className="text-sm font-bold mt-2">Breakfast</p></div></Link>
+          <Link href="/menu"><div className="bg-white border-2 border-zara-red rounded-lg p-4 text-center cursor-pointer hover:bg-zara-red hover:text-white transition"><span className="text-4xl">🍳</span><p className="text-sm font-bold mt-2">Hot Breakfast</p></div></Link>
+          <Link href="/menu"><div className="bg-white border-2 border-zara-red rounded-lg p-4 text-center cursor-pointer hover:bg-zara-red hover:text-white transition"><span className="text-4xl">🥐</span><p className="text-sm font-bold mt-2">Bakery</p></div></Link>
+          <Link href="/menu"><div className="bg-white border-2 border-zara-red rounded-lg p-4 text-center cursor-pointer hover:bg-zara-red hover:text-white transition"><span className="text-4xl">🍗</span><p className="text-sm font-bold mt-2">Appetizers</p></div></Link>
+          <Link href="/menu"><div className="bg-white border-2 border-zara-red rounded-lg p-4 text-center cursor-pointer hover:bg-zara-red hover:text-white transition"><span className="text-4xl">🥗</span><p className="text-sm font-bold mt-2">Salads</p></div></Link>
+          <Link href="/menu"><div className="bg-white border-2 border-zara-red rounded-lg p-4 text-center cursor-pointer hover:bg-zara-red hover:text-white transition"><span className="text-4xl">🥪</span><p className="text-sm font-bold mt-2">Light Meals</p></div></Link>
+          <Link href="/menu"><div className="bg-white border-2 border-zara-red rounded-lg p-4 text-center cursor-pointer hover:bg-zara-red hover:text-white transition"><span className="text-4xl">🔥</span><p className="text-sm font-bold mt-2">Grill</p></div></Link>
+          <Link href="/menu"><div className="bg-white border-2 border-zara-red
