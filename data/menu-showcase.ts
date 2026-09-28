@@ -157,6 +157,26 @@ const photos: Record<string, ShowcasePhoto[]> = {
     { src: '/images/menu/ghanaian/kontomire-yam.jpg', alt: 'Kontomire stew with boiled yam, avocado, eggs, beef and fish' },
     { src: '/images/menu/ghanaian/waakye.jpg', alt: 'Fully loaded waakye with gari, spaghetti, beef stew, boiled egg, coleslaw and fried fish' },
   ],
+  'hot-breakfast': [
+    { src: '/images/menu/hot-breakfast/avocado-bacon-egg.jpg', alt: 'Avocado toast topped with fried eggs and crispy bacon' },
+    { src: '/images/menu/hot-breakfast/eggs-benedict.jpg', alt: 'Eggs Benedict on toasted muffins with smoked salmon and hollandaise sauce' },
+    { src: '/images/menu/hot-breakfast/omelette.jpg', alt: 'Folded omelette filled with ham, peppers and cheese, with tomato and avocado' },
+    { src: '/images/menu/hot-breakfast/zara-full-breakfast.jpg', alt: 'Zara full breakfast with fried eggs, sausages, bacon, grilled tomato, baked beans, mushrooms and hash browns' },
+  ],
+  indian: [
+    { src: '/images/menu/indian/chicken-biryani.jpg', alt: 'Chicken biryani with fresh coriander, served with raita' },
+    { src: '/images/menu/indian/chicken-tikka.jpg', alt: 'Chicken tikka masala served with basmati rice' },
+    { src: '/images/menu/indian/spicy-chicken.jpg', alt: 'Spicy chicken curry with green chillies and peppers' },
+    { src: '/images/menu/indian/vegetable-korma.jpg', alt: 'Creamy vegetable korma with cashews and raisins' },
+  ],
+  'light-meals': [
+    { src: '/images/menu/light-meals/bacon-avo.jpg', alt: 'Bacon and avocado baguette with cream cheese, tomato, cucumber and rocket' },
+    { src: '/images/menu/light-meals/beef-wrap.jpg', alt: 'Beef wraps with peppers, onions, lettuce and creamy sauce' },
+    { src: '/images/menu/light-meals/tuna-sandwich.jpg', alt: 'Tuna sandwich on wholemeal bread with cheese and lettuce, served with crisps' },
+    { src: '/images/menu/light-meals/chicken-wrap.jpg', alt: 'Chicken wraps with lettuce, peppers and creamy dressing' },
+    { src: '/images/menu/light-meals/gourmet-beef-burger.jpg', alt: 'Gourmet beef burger with cheese, bacon and caramelised onions, served with seasoned fries' },
+    { src: '/images/menu/light-meals/chicken-club.jpg', alt: 'Toasted chicken club sandwich with lettuce and tomato, served with crisps' },
+  ],
 };
 
 const promoImages: Record<string, string> = {
@@ -167,6 +187,9 @@ const promoImages: Record<string, string> = {
   'extra-dishes': '/images/menu/extra-dishes/promo.jpg',
   'from-the-grill': '/images/menu/from-the-grill/promo.jpg',
   ghanaian: '/images/menu/ghanaian/promo.jpg',
+  'hot-breakfast': '/images/menu/hot-breakfast/promo.jpg',
+  indian: '/images/menu/indian/promo.jpg',
+  'light-meals': '/images/menu/light-meals/promo.jpg',
 };
 
 export const showcase: ShowcaseCategory[] = categories.map((c) => ({
