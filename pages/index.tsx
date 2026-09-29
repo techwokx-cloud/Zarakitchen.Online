@@ -57,119 +57,70 @@ export default function Home() {
         />
       </Head>
 
-      {/* TOP NAVIGATION */}
-      <header className="bg-white border-b border-gray-100 sticky top-0 z-50">
-        <div className="max-w-7xl mx-auto px-4 py-3 flex items-center justify-between">
-          <div className="flex items-center space-x-2">
-            <span className="text-3xl font-extrabold text-[#d32f2f] italic tracking-wider font-serif">
-              Zara Kitchen
-            </span>
-          </div>
-          <nav className="hidden md:flex space-x-8 font-semibold text-gray-700 text-sm">
-            <Link href="/" className="text-[#d32f2f] border-b-2 border-[#d32f2f] pb-1">
-              Home
-            </Link>
-            <Link href="/menu" className="hover:text-[#d32f2f] transition">
-              Menu
-            </Link>
-            <Link href="/about" className="hover:text-[#d32f2f] transition">
-              About
-            </Link>
-            <Link href="/gallery" className="hover:text-[#d32f2f] transition">
-              Gallery
-            </Link>
-            <Link href="/contact" className="hover:text-[#d32f2f] transition">
-              Contact
-            </Link>
-          </nav>
-          <div className="flex items-center space-x-3">
-            <Link
-              href="/menu"
-              className="bg-[#d32f2f] text-white px-4 py-2 rounded-lg font-bold text-xs flex items-center gap-1.5 shadow-md hover:bg-red-700 transition"
-            >
-              🛒 Order Online
-            </Link>
-            <a
-              href="https://wa.me/233591599629"
-              target="_blank"
-              rel="noreferrer"
-              className="bg-[#25D366] text-white px-4 py-2 rounded-lg font-bold text-xs flex items-center gap-1.5 shadow-md hover:bg-green-600 transition"
-            >
-              💬 WhatsApp Order
-            </a>
-          </div>
+      {/* FULL-WIDTH HERO SECTION (Matching Mockup) */}
+      <section className="relative w-full bg-[#FAF7F2] min-h-[480px] lg:min-h-[580px] flex items-center overflow-hidden">
+        {/* Full-width Slideshow Background */}
+        <div className="absolute inset-0 w-full h-full">
+          {heroImages.map((src, index) => (
+            <img
+              key={src}
+              src={src}
+              alt={`Zara Kitchen Dish ${index + 1}`}
+              className={`absolute inset-0 w-full h-full object-cover transition-opacity duration-1000 ease-in-out ${
+                index === currentHeroIdx ? 'opacity-100 scale-105' : 'opacity-0 scale-100'
+              }`}
+              onError={(e) => {
+                (e.currentTarget as HTMLImageElement).src = '/images/hero/hero.jpg';
+              }}
+            />
+          ))}
+          {/* Subtle gradient overlay to make text readable on the left */}
+          <div className="absolute inset-0 bg-gradient-to-r from-[#FAF7F2] via-[#FAF7F2]/90 to-transparent w-full md:w-3/5 z-10" />
         </div>
-      </header>
 
-      {/* HERO SECTION WITH IMAGE SLIDESHOW */}
-      <section className="bg-[#FAF7F2] py-8 lg:py-12 overflow-hidden border-b border-amber-100/50">
-        <div className="max-w-7xl mx-auto px-4 grid md:grid-cols-12 gap-8 items-center">
-          {/* Hero Branding */}
-          <div className="md:col-span-5 z-10">
-            <p className="text-gray-800 font-semibold text-base md:text-lg mb-1 tracking-wide">
+        {/* Hero Branding Content */}
+        <div className="relative z-20 max-w-7xl mx-auto px-6 sm:px-8 w-full py-12">
+          <div className="max-w-xl">
+            <p className="text-gray-800 font-semibold text-base sm:text-lg mb-1 tracking-wide">
               Authentic Ghanaian & Continental Cuisine
             </p>
-            <h1 className="text-5xl md:text-6xl lg:text-7xl font-extrabold text-[#d32f2f] italic font-serif leading-none tracking-tight">
+            <h1 className="text-5xl sm:text-6xl lg:text-7xl font-extrabold text-[#d32f2f] italic font-serif leading-none tracking-tight">
               Zara Kitchen
             </h1>
             <p
-              className="text-3xl md:text-4xl text-gray-900 font-bold mt-1 mb-2"
+              className="text-3xl sm:text-4xl text-gray-900 font-bold mt-1 mb-2"
               style={{ fontFamily: 'Caveat, cursive' }}
             >
               Made with Love <span className="text-[#d32f2f]">♡</span>
             </p>
-            <p className="text-gray-700 text-lg md:text-xl font-medium tracking-wide">
+            <p className="text-gray-700 text-lg sm:text-xl font-medium tracking-wide">
               Fresh. Tasty. Satisfying.
             </p>
           </div>
+        </div>
 
-          {/* Hero Slideshow Container */}
-          <div className="md:col-span-7 relative flex justify-end">
-            <div className="relative w-full max-w-2xl h-[320px] sm:h-[400px] md:h-[420px] rounded-2xl overflow-hidden shadow-2xl bg-stone-900">
-              {heroImages.map((src, index) => (
-                <img
-                  key={src}
-                  src={src}
-                  alt={`Zara Kitchen Dish ${index + 1}`}
-                  className={`absolute inset-0 w-full h-full object-cover transition-opacity duration-1000 ease-in-out ${
-                    index === currentHeroIdx
-                      ? 'opacity-100 scale-105 transition-transform duration-[4000ms]'
-                      : 'opacity-0 scale-100'
-                  }`}
-                  onError={(e) => {
-                    (e.currentTarget as HTMLImageElement).src = '/images/hero/hero.jpg';
-                  }}
-                />
-              ))}
+        {/* Floating Badge (Bottom Right) */}
+        <div className="absolute bottom-6 right-6 z-20 bg-[#d32f2f] text-white p-4 px-6 rounded-2xl shadow-2xl transform -rotate-3 text-center border-2 border-white/20">
+          <p className="text-xl sm:text-2xl font-bold leading-tight" style={{ fontFamily: 'Caveat, cursive' }}>
+            Delicious
+            <br />
+            Meals
+            <br />
+            <span className="text-base sm:text-lg">Made for You ♡</span>
+          </p>
+        </div>
 
-              {/* Floating Red Badge Overlay */}
-              <div className="absolute bottom-4 right-4 bg-[#d32f2f] text-white p-4 px-6 rounded-2xl shadow-2xl transform -rotate-3 text-center border-2 border-white/20">
-                <p
-                  className="text-2xl font-bold leading-tight"
-                  style={{ fontFamily: 'Caveat, cursive' }}
-                >
-                  Delicious
-                  <br />
-                  Meals
-                  <br />
-                  <span className="text-lg">Made for You ♡</span>
-                </p>
-              </div>
-
-              {/* Slideshow Dots Indicator */}
-              <div className="absolute bottom-4 left-4 flex space-x-1.5 z-20">
-                {heroImages.map((_, idx) => (
-                  <button
-                    key={idx}
-                    onClick={() => setCurrentHeroIdx(idx)}
-                    className={`w-2.5 h-2.5 rounded-full transition-all ${
-                      idx === currentHeroIdx ? 'bg-[#d32f2f] w-6' : 'bg-white/60'
-                    }`}
-                  />
-                ))}
-              </div>
-            </div>
-          </div>
+        {/* Slideshow Indicator Dots */}
+        <div className="absolute bottom-6 left-6 z-20 flex space-x-1.5">
+          {heroImages.map((_, idx) => (
+            <button
+              key={idx}
+              onClick={() => setCurrentHeroIdx(idx)}
+              className={`w-2.5 h-2.5 rounded-full transition-all ${
+                idx === currentHeroIdx ? 'bg-[#d32f2f] w-6' : 'bg-white/80'
+              }`}
+            />
+          ))}
         </div>
       </section>
 
