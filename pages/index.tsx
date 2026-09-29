@@ -57,7 +57,7 @@ export default function Home() {
         />
       </Head>
 
-      {/* FULL-WIDTH HERO SECTION (Matching Mockup) */}
+      {/* FULL-WIDTH HERO SECTION */}
       <section className="relative w-full bg-[#FAF7F2] min-h-[480px] lg:min-h-[560px] flex items-center overflow-hidden">
         {/* Edge-to-edge Background Container */}
         <div className="absolute inset-0 w-full h-full">
@@ -74,7 +74,7 @@ export default function Home() {
               }}
             />
           ))}
-          {/* Light gradient fade on the left side so text stays readable */}
+          {/* Subtle overlay gradient on left for text contrast */}
           <div className="absolute inset-0 bg-gradient-to-r from-[#FAF7F2] via-[#FAF7F2]/85 to-transparent w-full md:w-1/2 z-10" />
         </div>
 
@@ -99,7 +99,7 @@ export default function Home() {
           </div>
         </div>
 
-        {/* Floating Red Badge (Bottom Right) */}
+        {/* Floating Red Badge */}
         <div className="absolute bottom-6 right-6 z-20 bg-[#d32f2f] text-white p-4 px-6 rounded-2xl shadow-2xl transform -rotate-3 text-center border-2 border-white/20">
           <p className="text-xl sm:text-2xl font-bold leading-tight" style={{ fontFamily: 'Caveat, cursive' }}>
             Delicious
@@ -233,65 +233,6 @@ export default function Home() {
           </div>
         </div>
       </section>
-
-      {/* FOOTER */}
-      <footer className="bg-[#d32f2f] text-white py-10">
-        <div className="max-w-7xl mx-auto px-4 grid grid-cols-1 md:grid-cols-5 gap-8 text-sm">
-          <div>
-            <h4 className="text-2xl font-extrabold italic font-serif mb-1">Zara Kitchen</h4>
-            <p className="text-xs text-red-100">Good Food, Good Mood</p>
-          </div>
-          <div>
-            <h5 className="font-bold mb-3 border-b border-red-400/50 pb-1">Quick Links</h5>
-            <ul className="space-y-1.5 text-xs text-red-100">
-              <li>
-                <Link href="/" className="hover:underline">
-                  › Home
-                </Link>
-              </li>
-              <li>
-                <Link href="/menu" className="hover:underline">
-                  › Menu
-                </Link>
-              </li>
-              <li>
-                <Link href="/about" className="hover:underline">
-                  › About Us
-                </Link>
-              </li>
-              <li>
-                <Link href="/gallery" className="hover:underline">
-                  › Gallery
-                </Link>
-              </li>
-              <li>
-                <Link href="/contact" className="hover:underline">
-                  › Contact
-                </Link>
-              </li>
-            </ul>
-          </div>
-          <div>
-            <h5 className="font-bold mb-3 border-b border-red-400/50 pb-1">Contact Us</h5>
-            <p className="text-xs text-red-100 mb-1">✉ orders@zarakitchen.online</p>
-            <p className="text-xs text-red-100 mb-1">📞 059 159 9629</p>
-            <p className="text-xs text-red-100">📞 Phone 059 236 1289 / 059 159 9629</p>
-          </div>
-          <div>
-            <h5 className="font-bold mb-3 border-b border-red-400/50 pb-1">Opening Hours</h5>
-            <p className="text-xs text-red-100 mb-1">🕒 Mon – Fri: 8AM – 10PM</p>
-            <p className="text-xs text-red-100">🕒 Sat – Sun: 8AM – 11PM</p>
-          </div>
-          <div>
-            <h5 className="font-bold mb-3 border-b border-red-400/50 pb-1">Download App</h5>
-            <div className="bg-yellow-400 text-black p-2 rounded-lg text-center font-bold text-xs">
-              Install PWA
-              <br />
-              <span className="font-normal text-[10px]">Order faster. Save favorites.</span>
-            </div>
-          </div>
-        </div>
-      </footer>
     </>
   );
 }
