@@ -110,7 +110,8 @@ export default function Home() {
                       alt={cat.name} 
                       className="w-full h-full object-cover"
                       onError={(e) => {
-                        e.target.src = '/hero/Fried-Rice.png'; // Fallback
+                        const target = e.target as HTMLImageElement;
+                        target.src = '/hero/Fried-Rice.png';
                       }}
                     />
                   </div>
