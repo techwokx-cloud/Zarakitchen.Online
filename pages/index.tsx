@@ -1,4 +1,4 @@
-import Head from 'next/head';
+\import Head from 'next/head';
 import Link from 'next/link';
 import { useState, useEffect } from 'react';
 
@@ -58,15 +58,15 @@ export default function Home() {
       </Head>
 
       {/* FULL-WIDTH HERO SECTION (Matching Mockup) */}
-      <section className="relative w-full bg-[#FAF7F2] min-h-[480px] lg:min-h-[580px] flex items-center overflow-hidden">
-        {/* Full-width Slideshow Background */}
+      <section className="relative w-full bg-[#FAF7F2] min-h-[480px] lg:min-h-[560px] flex items-center overflow-hidden">
+        {/* Edge-to-edge Background Container */}
         <div className="absolute inset-0 w-full h-full">
           {heroImages.map((src, index) => (
             <img
               key={src}
               src={src}
               alt={`Zara Kitchen Dish ${index + 1}`}
-              className={`absolute inset-0 w-full h-full object-cover transition-opacity duration-1000 ease-in-out ${
+              className={`absolute inset-0 w-full h-full object-cover object-right transition-opacity duration-1000 ease-in-out ${
                 index === currentHeroIdx ? 'opacity-100 scale-105' : 'opacity-0 scale-100'
               }`}
               onError={(e) => {
@@ -74,8 +74,8 @@ export default function Home() {
               }}
             />
           ))}
-          {/* Subtle gradient overlay to make text readable on the left */}
-          <div className="absolute inset-0 bg-gradient-to-r from-[#FAF7F2] via-[#FAF7F2]/90 to-transparent w-full md:w-3/5 z-10" />
+          {/* Light gradient fade on the left side so text stays readable */}
+          <div className="absolute inset-0 bg-gradient-to-r from-[#FAF7F2] via-[#FAF7F2]/85 to-transparent w-full md:w-1/2 z-10" />
         </div>
 
         {/* Hero Branding Content */}
@@ -99,7 +99,7 @@ export default function Home() {
           </div>
         </div>
 
-        {/* Floating Badge (Bottom Right) */}
+        {/* Floating Red Badge (Bottom Right) */}
         <div className="absolute bottom-6 right-6 z-20 bg-[#d32f2f] text-white p-4 px-6 rounded-2xl shadow-2xl transform -rotate-3 text-center border-2 border-white/20">
           <p className="text-xl sm:text-2xl font-bold leading-tight" style={{ fontFamily: 'Caveat, cursive' }}>
             Delicious
@@ -117,7 +117,7 @@ export default function Home() {
               key={idx}
               onClick={() => setCurrentHeroIdx(idx)}
               className={`w-2.5 h-2.5 rounded-full transition-all ${
-                idx === currentHeroIdx ? 'bg-[#d32f2f] w-6' : 'bg-white/80'
+                idx === currentHeroIdx ? 'bg-[#d32f2f] w-6' : 'bg-stone-400'
               }`}
             />
           ))}
