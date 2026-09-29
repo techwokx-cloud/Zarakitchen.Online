@@ -1,22 +1,41 @@
 import Head from 'next/head';
 import Link from 'next/link';
+import { useState, useEffect } from 'react';
 
 export default function Home() {
+  const [currentHeroIndex, setCurrentHeroIndex] = useState(0);
+
+  const heroImages = [
+    '/hero/Banku-n-Tilapia.png',
+    '/hero/Fried-Rice.png',
+    '/hero/Burger.png',
+    '/hero/Fufu-Light-Soup.png',
+    '/hero/Rice-Balls.png',
+    '/hero/Fully-Loaded Waatye.png',
+  ];
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrentHeroIndex((prev) => (prev + 1) % heroImages.length);
+    }, 5000); // Change image every 5 seconds
+    return () => clearInterval(interval);
+  }, []);
+
   const categories = [
     { name: 'Breakfast', icon: '☕' },
     { name: 'Hot Breakfast', icon: '🍳' },
     { name: 'On the Bakery', icon: '🥐' },
-    { name: 'Appetizers', icon: '🍽️' },
+    { name: 'Appetizers', icon: '🥟' },
     { name: 'Salads', icon: '🥗' },
     { name: 'Light Meals', icon: '🥪' },
-    { name: 'On the Grill', icon: '🔥' },
+    { name: 'On the Grill', icon: '🍖' },
     { name: 'Pastas', icon: '🍝' },
-    { name: 'Chinese Food', icon: '🥢' },
+    { name: 'Chinese Food', icon: '🥡' },
     { name: 'Indian Dishes', icon: '🍛' },
     { name: 'Rice Dishes', icon: '🍚' },
-    { name: 'Ghanaian Specialities', icon: '🍲' },
+    { name: 'Ghanaian Specialities', icon: '🥘' },
     { name: 'From the Grill', icon: '🐟' },
-    { name: 'Soups', icon: '🥘' },
+    { name: 'Soups', icon: '🍲' },
     { name: 'Extra Dishes', icon: '🥔' },
     { name: 'Desserts', icon: '🍰' },
   ];
@@ -36,30 +55,49 @@ export default function Home() {
         <title>Zara Kitchen - Authentic Ghanaian Cuisine</title>
       </Head>
 
-      {/* HERO SECTION */}
-      <section className="relative bg-white">
-        <div className="max-w-7xl mx-auto px-4 py-8 md:py-12 grid md:grid-cols-2 gap-6 md:gap-8 items-center">
-          {/* Left: Text */}
-          <div className="order-2 md:order-1">
-            <p className="text-sm md:text-base text-gray-600 font-bold mb-2">Authentic Ghanaian & Continental Cuisine</p>
-            <h1 className="text-4xl md:text-6xl font-bold text-zara-red italic mb-2">Zara Kitchen</h1>
-            <p className="text-xl md:text-2xl font-bold italic mb-3 md:mb-4">Made with Love ❤</p>
-            <p className="text-gray-700 text-base md:text-lg">Fresh. Tasty. Satisfying.</p>
+      {/* HERO CAROUSEL */}
+      <section className="relative h-screen w-full overflow-hidden">
+        {/* Background Image Carousel */}
+        {heroImages.map((img, idx) => (
+          <div
+            key={idx}
+            className={`absolute inset-0 transition-opacity duration-1000 ${
+              idx === currentHeroIndex ? 'opacity-100' : 'opacity-0'
+            }`}
+          >
+            <img src={img} alt="Hero" className="w-full h-full object-cover" />
           </div>
+        ))}
 
-          {/* Right: Image with Banner */}
-          <div className="relative order-1 md:order-2 mb-6 md:mb-0">
-            <img 
-              src="/hero/Banku-n-Tilapia.png" 
-              alt="Zara Kitchen Food" 
-              className="rounded-lg w-full h-64 md:h-96 object-cover"
+        {/* Dark Overlay for Text Readability */}
+        <div className="absolute inset-0 bg-black/40"></div>
+
+        {/* Text Content - Centered/Left */}
+        <div className="absolute inset-0 flex flex-col justify-center px-4 md:px-8 max-w-3xl">
+          <p className="text-sm md:text-lg text-white font-bold mb-2">Authentic Ghanaian & Continental Cuisine</p>
+          <h1 className="text-5xl md:text-7xl font-bold text-white italic mb-2">Zara Kitchen</h1>
+          <p className="text-2xl md:text-3xl font-bold text-white italic mb-4">Made with Love ❤</p>
+          <p className="text-lg md:text-2xl text-white font-semibold">Fresh. Tasty. Satisfying.</p>
+        </div>
+
+        {/* Red Banner - Top Right */}
+        <div className="absolute top-4 md:top-8 right-4 md:right-8 bg-zara-red text-white p-4 md:p-6 rounded-lg text-center font-bold transform -rotate-12 shadow-2xl max-w-xs">
+          <p className="text-lg md:text-xl">Delicious</p>
+          <p className="text-lg md:text-xl">Meals</p>
+          <p className="text-sm md:text-base">Made for You ❤</p>
+        </div>
+
+        {/* Carousel Dots */}
+        <div className="absolute bottom-4 md:bottom-8 left-1/2 transform -translate-x-1/2 flex gap-2">
+          {heroImages.map((_, idx) => (
+            <button
+              key={idx}
+              onClick={() => setCurrentHeroIndex(idx)}
+              className={`w-2 h-2 md:w-3 md:h-3 rounded-full transition ${
+                idx === currentHeroIndex ? 'bg-zara-red' : 'bg-white/50'
+              }`}
             />
-            <div className="absolute top-2 md:top-4 right-2 md:right-4 bg-zara-red text-white p-2 md:p-4 rounded-lg text-center font-bold max-w-xs transform -rotate-12 shadow-lg text-sm md:text-base">
-              <p>Delicious</p>
-              <p>Meals</p>
-              <p>Made for You ❤</p>
-            </div>
-          </div>
+          ))}
         </div>
       </section>
 
@@ -69,8 +107,8 @@ export default function Home() {
           <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-8 gap-3 md:gap-4">
             {categories.map((cat, idx) => (
               <Link key={idx} href={`/menu?category=${cat.name}`}>
-                <div className="bg-white rounded-lg p-4 md:p-6 text-center cursor-pointer hover:shadow-lg transition h-full flex flex-col items-center justify-center">
-                  <span className="text-3xl md:text-5xl mb-2">{cat.icon}</span>
+                <div className="bg-white border-2 border-gray-100 rounded-xl p-4 md:p-6 text-center cursor-pointer hover:border-zara-red hover:shadow-lg transition-all h-full flex flex-col items-center justify-center hover:scale-105">
+                  <span className="text-4xl md:text-5xl mb-2">{cat.icon}</span>
                   <p className="text-xs md:text-sm font-bold text-gray-800 leading-tight">{cat.name}</p>
                 </div>
               </Link>
@@ -161,7 +199,7 @@ export default function Home() {
             <div>
               <h4 className="font-bold text-base md:text-lg mb-3 md:mb-4">Download App</h4>
               <div className="bg-yellow-400 text-black p-2 rounded text-center font-bold text-xs mb-3">
-                📱 Install PWA
+                📱 Install App
               </div>
               <div className="flex gap-2 justify-center text-lg">
                 <a href="#" className="hover:opacity-80">f</a>
