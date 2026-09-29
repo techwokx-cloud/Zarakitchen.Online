@@ -12,7 +12,7 @@ import {
   LuFlame, 
   LuSoup, 
   LuPizza, 
-  LuIceCream 
+  LuDessert // Changed from LuIceCream
 } from 'react-icons/lu';
 
 export default function Home() {
@@ -37,7 +37,7 @@ export default function Home() {
     return () => clearInterval(timer);
   }, [heroImages.length]);
 
-  // Categories list with Lucide Icons (prevents missing image 404s)
+  // Categories list
   const categories = [
     { name: 'Breakfast', icon: LuCoffee },
     { name: 'Hot Breakfast', icon: LuCoffee },
@@ -54,7 +54,7 @@ export default function Home() {
     { name: 'From the Grill', icon: LuFlame },
     { name: 'Soups', icon: LuSoup },
     { name: 'Extra Dishes', icon: LuUtensils },
-    { name: 'Desserts', icon: LuIceCream },
+    { name: 'Desserts', icon: LuDessert }, // Updated reference
   ];
 
   return (
