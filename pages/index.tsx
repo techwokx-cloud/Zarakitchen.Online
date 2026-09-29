@@ -50,28 +50,51 @@ export default function Home() {
       <Head>
         <title>Zara Kitchen - Authentic Ghanaian Cuisine</title>
         <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="true" />
-        <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@600;700&family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="" />
+        <link
+          href="https://fonts.googleapis.com/css2?family=Caveat:wght@600;700&family=Poppins:wght@400;500;600;700;800&display=swap"
+          rel="stylesheet"
+        />
       </Head>
 
       {/* TOP NAVIGATION */}
       <header className="bg-white border-b border-gray-100 sticky top-0 z-50">
         <div className="max-w-7xl mx-auto px-4 py-3 flex items-center justify-between">
           <div className="flex items-center space-x-2">
-            <span className="text-3xl font-extrabold text-[#d32f2f] italic tracking-wider font-serif">Zara Kitchen</span>
+            <span className="text-3xl font-extrabold text-[#d32f2f] italic tracking-wider font-serif">
+              Zara Kitchen
+            </span>
           </div>
           <nav className="hidden md:flex space-x-8 font-semibold text-gray-700 text-sm">
-            <Link href="/" className="text-[#d32f2f] border-b-2 border-[#d32f2f] pb-1">Home</Link>
-            <Link href="/menu" className="hover:text-[#d32f2f] transition">Menu</Link>
-            <Link href="/about" className="hover:text-[#d32f2f] transition">About</Link>
-            <Link href="/gallery" className="hover:text-[#d32f2f] transition">Gallery</Link>
-            <Link href="/contact" className="hover:text-[#d32f2f] transition">Contact</Link>
+            <Link href="/" className="text-[#d32f2f] border-b-2 border-[#d32f2f] pb-1">
+              Home
+            </Link>
+            <Link href="/menu" className="hover:text-[#d32f2f] transition">
+              Menu
+            </Link>
+            <Link href="/about" className="hover:text-[#d32f2f] transition">
+              About
+            </Link>
+            <Link href="/gallery" className="hover:text-[#d32f2f] transition">
+              Gallery
+            </Link>
+            <Link href="/contact" className="hover:text-[#d32f2f] transition">
+              Contact
+            </Link>
           </nav>
           <div className="flex items-center space-x-3">
-            <Link href="/menu" className="bg-[#d32f2f] text-white px-4 py-2 rounded-lg font-bold text-xs flex items-center gap-1.5 shadow-md hover:bg-red-700 transition">
+            <Link
+              href="/menu"
+              className="bg-[#d32f2f] text-white px-4 py-2 rounded-lg font-bold text-xs flex items-center gap-1.5 shadow-md hover:bg-red-700 transition"
+            >
               🛒 Order Online
             </Link>
-            <a href="https://wa.me/233591599629" target="_blank" rel="noreferrer" className="bg-[#25D366] text-white px-4 py-2 rounded-lg font-bold text-xs flex items-center gap-1.5 shadow-md hover:bg-green-600 transition">
+            <a
+              href="https://wa.me/233591599629"
+              target="_blank"
+              rel="noreferrer"
+              className="bg-[#25D366] text-white px-4 py-2 rounded-lg font-bold text-xs flex items-center gap-1.5 shadow-md hover:bg-green-600 transition"
+            >
               💬 WhatsApp Order
             </a>
           </div>
@@ -81,7 +104,6 @@ export default function Home() {
       {/* HERO SECTION WITH IMAGE SLIDESHOW */}
       <section className="bg-[#FAF7F2] py-8 lg:py-12 overflow-hidden border-b border-amber-100/50">
         <div className="max-w-7xl mx-auto px-4 grid md:grid-cols-12 gap-8 items-center">
-          
           {/* Hero Branding */}
           <div className="md:col-span-5 z-10">
             <p className="text-gray-800 font-semibold text-base md:text-lg mb-1 tracking-wide">
@@ -90,7 +112,10 @@ export default function Home() {
             <h1 className="text-5xl md:text-6xl lg:text-7xl font-extrabold text-[#d32f2f] italic font-serif leading-none tracking-tight">
               Zara Kitchen
             </h1>
-            <p className="text-3xl md:text-4xl text-gray-900 font-bold mt-1 mb-2" style={{ fontFamily: 'Caveat, cursive' }}>
+            <p
+              className="text-3xl md:text-4xl text-gray-900 font-bold mt-1 mb-2"
+              style={{ fontFamily: 'Caveat, cursive' }}
+            >
               Made with Love <span className="text-[#d32f2f]">♡</span>
             </p>
             <p className="text-gray-700 text-lg md:text-xl font-medium tracking-wide">
@@ -107,19 +132,26 @@ export default function Home() {
                   src={src}
                   alt={`Zara Kitchen Dish ${index + 1}`}
                   className={`absolute inset-0 w-full h-full object-cover transition-opacity duration-1000 ease-in-out ${
-                    index === currentHeroIdx ? 'opacity-100 scale-105 transition-transform duration-[4000ms]' : 'opacity-0 scale-100'
+                    index === currentHeroIdx
+                      ? 'opacity-100 scale-105 transition-transform duration-[4000ms]'
+                      : 'opacity-0 scale-100'
                   }`}
                   onError={(e) => {
-                    e.currentTarget.src = '/images/hero/hero.jpg';
+                    (e.currentTarget as HTMLImageElement).src = '/images/hero/hero.jpg';
                   }}
                 />
               ))}
 
               {/* Floating Red Badge Overlay */}
               <div className="absolute bottom-4 right-4 bg-[#d32f2f] text-white p-4 px-6 rounded-2xl shadow-2xl transform -rotate-3 text-center border-2 border-white/20">
-                <p className="text-2xl font-bold leading-tight" style={{ fontFamily: 'Caveat, cursive' }}>
-                  Delicious<br />
-                  Meals<br />
+                <p
+                  className="text-2xl font-bold leading-tight"
+                  style={{ fontFamily: 'Caveat, cursive' }}
+                >
+                  Delicious
+                  <br />
+                  Meals
+                  <br />
                   <span className="text-lg">Made for You ♡</span>
                 </p>
               </div>
@@ -138,7 +170,6 @@ export default function Home() {
               </div>
             </div>
           </div>
-
         </div>
       </section>
 
@@ -157,7 +188,7 @@ export default function Home() {
                         alt={cat.name}
                         className="w-full h-full object-cover rounded-full"
                         onError={(e) => {
-                          e.currentTarget.src = '/images/hero/hero.jpg';
+                          (e.currentTarget as HTMLImageElement).src = '/images/hero/hero.jpg';
                         }}
                       />
                     </div>
@@ -176,7 +207,6 @@ export default function Home() {
       <section className="bg-white pb-12">
         <div className="max-w-7xl mx-auto px-4">
           <div className="grid md:grid-cols-12 gap-6">
-            
             {/* Platforms Card */}
             <div className="md:col-span-8 border-2 border-[#d32f2f] rounded-2xl p-5 sm:p-6">
               <h2 className="text-2xl font-extrabold text-[#d32f2f]">Order Your Way</h2>
@@ -185,20 +215,30 @@ export default function Home() {
               </p>
 
               <div className="grid grid-cols-3 sm:grid-cols-6 gap-3">
-                <Link href="/menu" className="p-2 border border-gray-200 rounded-xl flex flex-col items-center text-center hover:border-[#d32f2f] hover:bg-red-50/30 transition">
+                <Link
+                  href="/menu"
+                  className="p-2 border border-gray-200 rounded-xl flex flex-col items-center text-center hover:border-[#d32f2f] hover:bg-red-50/30 transition"
+                >
                   <span className="text-2xl mb-1">🌐</span>
                   <span className="text-xs font-bold text-gray-800">Website</span>
                   <span className="text-[10px] text-gray-500">Order Online</span>
                 </Link>
 
-                <a href="https://wa.me/233591599629" target="_blank" rel="noreferrer" className="p-2 border border-gray-200 rounded-xl flex flex-col items-center text-center hover:border-green-500 hover:bg-green-50/30 transition">
+                <a
+                  href="https://wa.me/233591599629"
+                  target="_blank"
+                  rel="noreferrer"
+                  className="p-2 border border-gray-200 rounded-xl flex flex-col items-center text-center hover:border-green-500 hover:bg-green-50/30 transition"
+                >
                   <span className="text-2xl mb-1">💬</span>
                   <span className="text-xs font-bold text-gray-800">WhatsApp</span>
                   <span className="text-[10px] text-gray-500">Chat & Order</span>
                 </a>
 
                 <div className="p-2 border border-gray-200 rounded-xl flex flex-col items-center text-center justify-center">
-                  <span className="text-xs font-black text-orange-600 tracking-tight">Jumia Food</span>
+                  <span className="text-xs font-black text-orange-600 tracking-tight">
+                    Jumia Food
+                  </span>
                 </div>
 
                 <div className="p-2 border border-gray-200 rounded-xl flex flex-col items-center text-center justify-center">
@@ -206,7 +246,9 @@ export default function Home() {
                 </div>
 
                 <div className="p-2 border border-gray-200 rounded-xl flex flex-col items-center text-center justify-center">
-                  <span className="text-xs font-black text-emerald-500 tracking-tight">Bolt Food</span>
+                  <span className="text-xs font-black text-emerald-500 tracking-tight">
+                    Bolt Food
+                  </span>
                 </div>
 
                 <div className="p-2 border border-gray-200 rounded-xl flex flex-col items-center text-center justify-center">
@@ -237,7 +279,6 @@ export default function Home() {
                 </div>
               </div>
             </div>
-
           </div>
         </div>
       </section>
@@ -252,11 +293,31 @@ export default function Home() {
           <div>
             <h5 className="font-bold mb-3 border-b border-red-400/50 pb-1">Quick Links</h5>
             <ul className="space-y-1.5 text-xs text-red-100">
-              <li><Link href="/" className="hover:underline">› Home</Link></li>
-              <li><Link href="/menu" className="hover:underline">› Menu</Link></li>
-              <li><Link href="/about" className="hover:underline">› About Us</Link></li>
-              <li><Link href="/gallery" className="hover:underline">› Gallery</Link></li>
-              <li><Link href="/contact" className="hover:underline">› Contact</Link></li>
+              <li>
+                <Link href="/" className="hover:underline">
+                  › Home
+                </Link>
+              </li>
+              <li>
+                <Link href="/menu" className="hover:underline">
+                  › Menu
+                </Link>
+              </li>
+              <li>
+                <Link href="/about" className="hover:underline">
+                  › About Us
+                </Link>
+              </li>
+              <li>
+                <Link href="/gallery" className="hover:underline">
+                  › Gallery
+                </Link>
+              </li>
+              <li>
+                <Link href="/contact" className="hover:underline">
+                  › Contact
+                </Link>
+              </li>
             </ul>
           </div>
           <div>
@@ -273,7 +334,8 @@ export default function Home() {
           <div>
             <h5 className="font-bold mb-3 border-b border-red-400/50 pb-1">Download App</h5>
             <div className="bg-yellow-400 text-black p-2 rounded-lg text-center font-bold text-xs">
-              Install PWA<br />
+              Install PWA
+              <br />
               <span className="font-normal text-[10px]">Order faster. Save favorites.</span>
             </div>
           </div>
