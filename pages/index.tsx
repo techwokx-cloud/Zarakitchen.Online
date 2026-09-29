@@ -3,7 +3,7 @@ import Link from 'next/link';
 import { useState, useEffect } from 'react';
 
 export default function Home() {
-  // Hero Carousel Images from /public/images/hero
+  // Hero Carousel Images
   const heroImages = [
     '/images/hero/Banku-n-Tilapia.png',
     '/images/hero/Burger.png',
@@ -17,7 +17,7 @@ export default function Home() {
 
   const [currentHeroIdx, setCurrentHeroIdx] = useState(0);
 
-  // Auto-slide hero images every 3.5 seconds
+  // Auto-slide hero images
   useEffect(() => {
     const timer = setInterval(() => {
       setCurrentHeroIdx((prev) => (prev + 1) % heroImages.length);
@@ -25,7 +25,7 @@ export default function Home() {
     return () => clearInterval(timer);
   }, [heroImages.length]);
 
-  // Categories mapped to exact repository folders inside /public/images/categories/
+  // Categories mapped to exact image files
   const categories = [
     { name: 'Breakfast', folder: 'breakfast', image: 'fruit-salad.png' },
     { name: 'Hot Breakfast', folder: 'hot-breakfast', image: 'Avocado-Bacon-Egg.png' },
@@ -57,9 +57,9 @@ export default function Home() {
         />
       </Head>
 
-      {/* FULL-WIDTH HERO SECTION */}
+      {/* HERO SECTION */}
       <section className="relative w-full bg-[#FAF7F2] min-h-[480px] lg:min-h-[560px] flex items-center overflow-hidden">
-        {/* Edge-to-edge Background Container */}
+        {/* Background Slideshow */}
         <div className="absolute inset-0 w-full h-full">
           {heroImages.map((src, index) => (
             <img
@@ -69,16 +69,12 @@ export default function Home() {
               className={`absolute inset-0 w-full h-full object-cover object-right transition-opacity duration-1000 ease-in-out ${
                 index === currentHeroIdx ? 'opacity-100 scale-105' : 'opacity-0 scale-100'
               }`}
-              onError={(e) => {
-                (e.currentTarget as HTMLImageElement).src = '/images/hero/hero.jpg';
-              }}
             />
           ))}
-          {/* Subtle overlay gradient on left for text contrast */}
           <div className="absolute inset-0 bg-gradient-to-r from-[#FAF7F2] via-[#FAF7F2]/85 to-transparent w-full md:w-1/2 z-10" />
         </div>
 
-        {/* Hero Branding Content */}
+        {/* Hero Text */}
         <div className="relative z-20 max-w-7xl mx-auto px-6 sm:px-8 w-full py-12">
           <div className="max-w-xl">
             <p className="text-gray-800 font-semibold text-base sm:text-lg mb-1 tracking-wide">
@@ -99,18 +95,7 @@ export default function Home() {
           </div>
         </div>
 
-        {/* Floating Red Badge */}
-        <div className="absolute bottom-6 right-6 z-20 bg-[#d32f2f] text-white p-4 px-6 rounded-2xl shadow-2xl transform -rotate-3 text-center border-2 border-white/20">
-          <p className="text-xl sm:text-2xl font-bold leading-tight" style={{ fontFamily: 'Caveat, cursive' }}>
-            Delicious
-            <br />
-            Meals
-            <br />
-            <span className="text-base sm:text-lg">Made for You ♡</span>
-          </p>
-        </div>
-
-        {/* Slideshow Indicator Dots */}
+        {/* Dots */}
         <div className="absolute bottom-6 left-6 z-20 flex space-x-1.5">
           {heroImages.map((_, idx) => (
             <button
@@ -124,23 +109,20 @@ export default function Home() {
         </div>
       </section>
 
-      {/* CATEGORIES GRID */}
+      {/* CATEGORIES GRID (No Circular Borders / Unique Images) */}
       <section className="bg-white py-10">
         <div className="max-w-7xl mx-auto px-4">
-          <div className="grid grid-cols-2 sm:grid-cols-4 lg:grid-cols-8 gap-4">
+          <div className="grid grid-cols-2 sm:grid-cols-4 lg:grid-cols-8 gap-6">
             {categories.map((cat, idx) => {
               const imagePath = `/images/categories/${cat.folder}/${cat.image}`;
               return (
                 <Link key={idx} href={`/menu?category=${encodeURIComponent(cat.name)}`}>
                   <div className="flex flex-col items-center group cursor-pointer">
-                    <div className="w-20 h-20 sm:w-24 sm:h-24 rounded-full bg-stone-100 p-1 shadow-sm border border-stone-200/60 group-hover:shadow-md group-hover:scale-105 transition-all duration-200 overflow-hidden flex items-center justify-center">
+                    <div className="w-20 h-20 sm:w-24 sm:h-24 flex items-center justify-center overflow-hidden transition-transform duration-200 group-hover:scale-105">
                       <img
                         src={imagePath}
                         alt={cat.name}
-                        className="w-full h-full object-cover rounded-full"
-                        onError={(e) => {
-                          (e.currentTarget as HTMLImageElement).src = '/images/hero/hero.jpg';
-                        }}
+                        className="w-full h-full object-contain"
                       />
                     </div>
                     <p className="mt-2 text-xs sm:text-sm font-bold text-center text-gray-800 group-hover:text-[#d32f2f] transition">
@@ -154,11 +136,10 @@ export default function Home() {
         </div>
       </section>
 
-      {/* ORDER YOUR WAY & PAYMENT SECTION */}
+      {/* ORDER OPTIONS & PAYMENTS */}
       <section className="bg-white pb-12">
         <div className="max-w-7xl mx-auto px-4">
           <div className="grid md:grid-cols-12 gap-6">
-            {/* Platforms Card */}
             <div className="md:col-span-8 border-2 border-[#d32f2f] rounded-2xl p-5 sm:p-6">
               <h2 className="text-2xl font-extrabold text-[#d32f2f]">Order Your Way</h2>
               <p className="text-xs font-semibold text-gray-500 tracking-wider uppercase mb-5">
@@ -208,7 +189,6 @@ export default function Home() {
               </div>
             </div>
 
-            {/* Payment Options Card */}
             <div className="md:col-span-4 border-2 border-[#d32f2f] rounded-2xl p-5 sm:p-6 flex flex-col justify-between">
               <div>
                 <h3 className="text-center text-xs font-bold text-[#d32f2f] uppercase tracking-wider mb-4">
