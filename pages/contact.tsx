@@ -133,4 +133,62 @@ export default function Contact() {
               <h3 className="text-lg font-bold text-zara-red mb-3">Opening Hours</h3>
               <p className="text-gray-900 font-semibold text-sm mb-2">Mon - Fri: 8AM - 10PM</p>
               <p className="text-gray-900 font-semibold text-sm mb-2">Sat - Sun: 8AM - 11PM</p>
-              <p className="text-gray-600 text-sm">We're
+              <p className="text-gray-600 text-sm">We're open and ready to serve you.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* FORM & MAP */}
+      <section className="bg-white py-16">
+        <div className="max-w-7xl mx-auto px-4">
+          <div className="grid md:grid-cols-2 gap-12">
+            {/* FORM */}
+            <div id="contact-form">
+              <h2 className="text-4xl font-bold text-zara-red italic mb-2">Send Us a Message</h2>
+              <p className="text-gray-600 mb-8">Fill out the form below and we'll respond as soon as possible.</p>
+
+              {success && (
+                <div className="bg-green-50 border-2 border-green-500 text-green-700 p-4 rounded-lg mb-6">
+                  ✅ Message sent successfully! We'll get back to you soon.
+                </div>
+              )}
+
+              {error && (
+                <div className="bg-red-50 border-2 border-red-500 text-red-700 p-4 rounded-lg mb-6">
+                  ❌ {error}
+                </div>
+              )}
+
+              <form onSubmit={handleSubmit} className="space-y-5">
+                <div className="grid md:grid-cols-2 gap-4">
+                  <div>
+                    <label className="block text-gray-700 font-semibold mb-2 text-sm">Full Name *</label>
+                    <input
+                      type="text"
+                      name="fullName"
+                      value={formData.fullName}
+                      onChange={handleChange}
+                      placeholder="e.g. John Doe"
+                      className="w-full px-4 py-2.5 border border-gray-300 rounded text-sm focus:border-zara-red focus:outline-none"
+                      required
+                    />
+                  </div>
+                  <div>
+                    <label className="block text-gray-700 font-semibold mb-2 text-sm">Email Address *</label>
+                    <input
+                      type="email"
+                      name="email"
+                      value={formData.email}
+                      onChange={handleChange}
+                      placeholder="e.g. john@example.com"
+                      className="w-full px-4 py-2.5 border border-gray-300 rounded text-sm focus:border-zara-red focus:outline-none"
+                      required
+                    />
+                  </div>
+                </div>
+
+                <div className="grid md:grid-cols-2 gap-4">
+                  <div>
+                    <label className="block text-gray-700 font-semibold mb-2 text-sm">Phone / WhatsApp *</label>
+                    <input
