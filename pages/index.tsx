@@ -121,7 +121,6 @@ export default function Home() {
                       alt={cat.name}
                       className="w-full h-full object-contain drop-shadow-sm"
                       onError={(e) => {
-                        // Fallback placeholder if image isn't in public folder yet
                         e.currentTarget.src = 'https://via.placeholder.com/100?text=' + encodeURIComponent(cat.name);
                       }}
                     />
@@ -136,100 +135,15 @@ export default function Home() {
         </div>
       </section>
 
-      {/* ORDER YOUR WAY & ALL PAYMENTS ACCEPTED */}
-      <section className="bg-white py-8">
+      {/* ORDER YOUR WAY - IMAGE REPLACEMENT */}
+      <section className="bg-white py-6">
         <div className="max-w-7xl mx-auto px-4">
-          <div className="grid md:grid-cols-12 gap-6 items-stretch">
-            
-            {/* Order Your Way Box */}
-            <div className="md:col-span-8 border-2 border-red-600 rounded-2xl p-6 sm:p-8 flex flex-col justify-between">
-              <div>
-                <h2 className="text-2xl sm:text-3xl font-extrabold text-[#c02626]">
-                  Order Your Way
-                </h2>
-                <p className="text-[11px] font-bold text-gray-400 tracking-wider uppercase mb-6 mt-0.5">
-                  FAST • EASY • CONVENIENT
-                </p>
-
-                <div className="grid grid-cols-3 sm:grid-cols-6 gap-3">
-                  {/* Website */}
-                  <Link
-                    href="/menu"
-                    className="bg-gray-50/80 border border-gray-100 rounded-2xl p-4 flex flex-col items-center text-center justify-center hover:bg-gray-100 transition min-h-[110px]"
-                  >
-                    <div className="w-8 h-8 rounded-lg bg-red-600 text-white flex items-center justify-center mb-2 font-bold text-xs">
-                      🌐
-                    </div>
-                    <span className="text-xs font-bold text-gray-900">Website</span>
-                    <span className="text-[10px] text-gray-400 font-medium mt-0.5">Order Online</span>
-                  </Link>
-
-                  {/* WhatsApp */}
-                  <a
-                    href="https://wa.me/233591599629"
-                    target="_blank"
-                    rel="noreferrer"
-                    className="bg-gray-50/80 border border-gray-100 rounded-2xl p-4 flex flex-col items-center text-center justify-center hover:bg-gray-100 transition min-h-[110px]"
-                  >
-                    <div className="w-8 h-8 rounded-lg bg-green-500 text-white flex items-center justify-center mb-2 font-bold text-xs">
-                      💬
-                    </div>
-                    <span className="text-xs font-bold text-gray-900">WhatsApp</span>
-                    <span className="text-[10px] text-gray-400 font-medium mt-0.5">Chat & Order</span>
-                  </a>
-
-                  {/* Jumia Food */}
-                  <div className="bg-gray-50/80 border border-gray-100 rounded-2xl p-4 flex items-center justify-center text-center min-h-[110px]">
-                    <span className="text-xs font-extrabold text-[#ea580c] leading-tight">
-                      Jumia Food
-                    </span>
-                  </div>
-
-                  {/* Uber Eats */}
-                  <div className="bg-gray-50/80 border border-gray-100 rounded-2xl p-4 flex items-center justify-center text-center min-h-[110px]">
-                    <span className="text-xs font-extrabold text-black leading-tight">
-                      Uber Eats
-                    </span>
-                  </div>
-
-                  {/* Bolt Food */}
-                  <div className="bg-gray-50/80 border border-gray-100 rounded-2xl p-4 flex items-center justify-center text-center min-h-[110px]">
-                    <span className="text-xs font-extrabold text-[#10b981] leading-tight">
-                      Bolt Food
-                    </span>
-                  </div>
-
-                  {/* Hubtel */}
-                  <div className="bg-gray-50/80 border border-gray-100 rounded-2xl p-4 flex items-center justify-center text-center min-h-[110px]">
-                    <span className="text-xs font-extrabold text-[#dc2626] leading-tight">
-                      Hubtel
-                    </span>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            {/* All Payments Accepted Box */}
-            <div className="md:col-span-4 border-2 border-red-600 rounded-2xl p-6 sm:p-8 flex flex-col">
-              <h3 className="text-center text-xs font-bold text-[#c02626] uppercase tracking-wider mb-6">
-                ALL PAYMENTS ACCEPTED
-              </h3>
-              <div className="grid grid-cols-3 gap-3 my-auto">
-                <div className="bg-gray-50/80 border border-gray-100 rounded-2xl p-3 text-center flex flex-col justify-center min-h-[90px]">
-                  <span className="block text-xs font-extrabold text-gray-900">MoMo</span>
-                  <span className="text-[10px] text-gray-400 font-medium mt-1">Mobile Money</span>
-                </div>
-                <div className="bg-gray-50/80 border border-gray-100 rounded-2xl p-3 text-center flex flex-col justify-center min-h-[90px]">
-                  <span className="block text-xs font-extrabold text-gray-900">Cards</span>
-                  <span className="text-[10px] text-gray-400 font-medium mt-1">Bank Cards</span>
-                </div>
-                <div className="bg-gray-50/80 border border-gray-100 rounded-2xl p-3 text-center flex flex-col justify-center min-h-[90px]">
-                  <span className="block text-xs font-extrabold text-gray-900">Cash</span>
-                  <span className="text-[10px] text-gray-400 font-medium mt-1">Pay on Delivery</span>
-                </div>
-              </div>
-            </div>
-
+          <div className="w-full flex justify-center">
+            <img
+              src="/images/order-your-way.png"
+              alt="Order Your Way & All Payments Accepted"
+              className="w-full h-auto max-w-full object-contain"
+            />
           </div>
         </div>
       </section>
