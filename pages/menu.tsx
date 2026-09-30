@@ -3,7 +3,6 @@ import { useRouter } from 'next/router';
 import { useState, useEffect } from 'react';
 import { findShowcase } from '../data/menu-showcase';
 
-// Categories list matching your mockup design
 const CATEGORIES = [
   'Starters',
   'Signature',
@@ -38,6 +37,12 @@ export default function Menu() {
   }, [initialCategoryName]);
 
   const activeShowcase = findShowcase(activeCategory);
+
+  // Safely extract dishes array matching ShowcaseCategory interface
+  const showcaseItems =
+    (activeShowcase as any)?.dishes ||
+    (activeShowcase as any)?.items ||
+    [];
 
   const handleCategoryClick = (categoryName: string) => {
     if (activeCategory === categoryName) {
@@ -109,10 +114,10 @@ export default function Menu() {
 
               {/* 4 COLUMNS GRID */}
               <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6">
-                {activeShowcase.items && activeShowcase.items.length > 0 ? (
-                  activeShowcase.items.map((item) => (
+                {showcaseItems.length > 0 ? (
+                  showcaseItems.map((item: any) => (
                     <div
-                      key={item.id}
+                      key={item.id || item.name}
                       className="bg-white border border-stone-100 rounded-2xl overflow-hidden shadow-sm hover:shadow-md transition flex flex-col justify-between group"
                     >
                       {/* Image Container */}
@@ -126,9 +131,11 @@ export default function Menu() {
                           }}
                         />
                         {/* PRICE BADGE OVER IMAGE */}
-                        <div className="absolute bottom-3 right-3 bg-[#c02626] text-white text-xs font-extrabold px-3 py-1.5 rounded-full shadow-md">
-                          {item.price}
-                        </div>
+                        {item.price && (
+                          <div className="absolute bottom-3 right-3 bg-[#c02626] text-white text-xs font-extrabold px-3 py-1.5 rounded-full shadow-md">
+                            {item.price}
+                          </div>
+                        )}
                       </div>
 
                       {/* Content Container */}
