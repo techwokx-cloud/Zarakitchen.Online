@@ -1,6 +1,7 @@
 import Head from 'next/head';
 import Link from 'next/link';
 import { useState } from 'react';
+import Footer from '../components/Footer';
 
 export default function Contact() {
   const [formData, setFormData] = useState({
@@ -103,22 +104,7 @@ export default function Contact() {
               <h3 className="text-lg font-bold text-zara-red mb-3">Phone / WhatsApp</h3>
               <p className="text-gray-800 font-semibold mb-1">059 159 9629</p>
               <p className="text-gray-800 font-semibold mb-4">+233 59 159 9629</p>
-              <div className="flex gap-3">
-                <a
-                  href="tel:+233591599629"
-                  className="bg-zara-red text-white px-4 py-2 rounded text-sm font-bold hover:bg-red-700 transition"
-                >
-                  Call
-                </a>
-                <a
-                  href="https://wa.me/233591599629"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="bg-green-600 text-white px-4 py-2 rounded text-sm font-bold hover:bg-green-700 transition"
-                >
-                  WhatsApp
-                </a>
-              </div>
+              <p className="text-gray-600 text-sm">Call or WhatsApp us for quick assistance.</p>
             </div>
 
             {/* Email Card */}
@@ -126,12 +112,7 @@ export default function Contact() {
               <div className="text-4xl text-zara-red mb-4">✉️</div>
               <h3 className="text-lg font-bold text-zara-red mb-3">Email</h3>
               <p className="text-gray-800 font-semibold mb-4">orders@zarakitchen.online</p>
-              <a
-                href="mailto:orders@zarakitchen.online"
-                className="bg-zara-red text-white px-4 py-2 rounded text-sm font-bold hover:bg-red-700 transition inline-block"
-              >
-                Send Email
-              </a>
+              <p className="text-gray-600 text-sm">We'll get back to you as soon as possible.</p>
             </div>
 
             {/* Location Card */}
@@ -139,14 +120,7 @@ export default function Contact() {
               <div className="text-4xl text-zara-red mb-4">📍</div>
               <h3 className="text-lg font-bold text-zara-red mb-3">Our Location</h3>
               <p className="text-gray-800 font-semibold mb-4">Accra, Ghana</p>
-              <a
-                href="https://maps.google.com/?q=Accra+Ghana"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="bg-zara-red text-white px-4 py-2 rounded text-sm font-bold hover:bg-red-700 transition inline-block"
-              >
-                View Map
-              </a>
+              <p className="text-gray-600 text-sm">Visit us for a great dining experience.</p>
             </div>
 
             {/* Hours Card */}
@@ -154,7 +128,8 @@ export default function Contact() {
               <div className="text-4xl text-zara-red mb-4">⏰</div>
               <h3 className="text-lg font-bold text-zara-red mb-3">Opening Hours</h3>
               <p className="text-gray-800 font-semibold text-sm mb-2">Mon - Fri: 8AM - 10PM</p>
-              <p className="text-gray-800 font-semibold text-sm mb-4">Sat - Sun: 8AM - 11PM</p>
+              <p className="text-gray-800 font-semibold text-sm mb-2">Sat - Sun: 8AM - 11PM</p>
+              <p className="text-gray-600 text-sm">We're open and ready to serve you.</p>
             </div>
           </div>
         </div>
@@ -163,7 +138,7 @@ export default function Contact() {
       {/* CONTACT FORM & MAP */}
       <section className="bg-white py-12 md:py-16">
         <div className="max-w-7xl mx-auto px-4">
-          <div className="grid md:grid-cols-2 gap-8 mb-12">
+          <div className="grid md:grid-cols-2 gap-8">
             {/* FORM */}
             <div id="contact-form">
               <h2 className="text-4xl font-bold text-zara-red italic mb-2">Send Us a Message</h2>
@@ -282,7 +257,7 @@ export default function Contact() {
                 />
               </div>
               <p className="text-gray-700 font-semibold text-lg mb-2">Accra, Ghana</p>
-              <p className="text-gray-600 mb-6">We look forward to welcoming you!</p>
+              <p className="text-gray-600 mb-6">We are located in Accra and look forward to welcoming you!</p>
               <div className="rounded-lg overflow-hidden shadow-lg">
                 <img
                   src="/hero/Fried-Rice.png"
@@ -299,10 +274,11 @@ export default function Contact() {
       <section className="bg-zara-red text-white py-12 md:py-16">
         <div className="max-w-7xl mx-auto px-4 flex flex-col md:flex-row items-center justify-between gap-8">
           <div className="flex-1">
+            <div className="text-5xl mb-4">🍽️</div>
             <h2 className="text-3xl md:text-4xl font-bold italic mb-2">
-              Good Food Brings People Together ❤
+              Good Food Brings<br />People Together ❤
             </h2>
-            <p className="text-lg">For bookings, large orders or special events, contact us today.</p>
+            <p className="text-lg">For bookings, large orders or special events, our team is ready to help.</p>
           </div>
           <a
             href="https://wa.me/233591599629?text=Hi%20Zara%20Kitchen%2C%20I%27d%20like%20to%20request%20catering%20services"
@@ -316,46 +292,7 @@ export default function Contact() {
       </section>
 
       {/* FOOTER */}
-      <footer className="bg-zara-red text-white py-8 md:py-12">
-        <div className="max-w-7xl mx-auto px-4">
-          <div className="grid grid-cols-2 md:grid-cols-5 gap-6 md:gap-8 mb-8">
-            <div>
-              <h4 className="font-bold text-lg mb-2">🍃 Zara Kitchen</h4>
-              <p className="text-sm">Good Food, Good Mood</p>
-            </div>
-            <div>
-              <h4 className="font-bold text-lg mb-4">Quick Links</h4>
-              <ul className="space-y-2 text-sm">
-                <li><Link href="/">Home</Link></li>
-                <li><Link href="/menu">Menu</Link></li>
-                <li><Link href="/about">About</Link></li>
-                <li><Link href="/contact">Contact</Link></li>
-              </ul>
-            </div>
-            <div>
-              <h4 className="font-bold text-lg mb-4">Contact</h4>
-              <p className="text-sm mb-2">orders@zarakitchen.online</p>
-              <p className="text-sm">059 159 9629</p>
-            </div>
-            <div>
-              <h4 className="font-bold text-lg mb-4">Hours</h4>
-              <p className="text-sm mb-1">Mon-Fri: 8AM-10PM</p>
-              <p className="text-sm">Sat-Sun: 8AM-11PM</p>
-            </div>
-            <div>
-              <h4 className="font-bold text-lg mb-4">Follow</h4>
-              <div className="flex gap-3 text-lg">
-                <a href="#">f</a>
-                <a href="#">📷</a>
-                <a href="#">▶</a>
-              </div>
-            </div>
-          </div>
-          <div className="border-t border-white/30 pt-4 text-center text-sm">
-            <p>&copy; 2026 Zara Kitchen. All rights reserved.</p>
-          </div>
-        </div>
-      </footer>
+      <Footer />
     </>
   );
 }
